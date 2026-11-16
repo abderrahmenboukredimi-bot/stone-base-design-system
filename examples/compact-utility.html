@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-corner="squircle">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="color-scheme" content="light dark">
+  <meta name="stone-storage-prefix" content="stone">
+  <link rel="icon" href="data:,">
+  <title>Stone Converter — Compact Utility Shell (Stone Base v1.1.2)</title>
+  <script src="../js/stone-boot.js"></script>
+  <link rel="stylesheet" href="../css/stone-tokens.css">
+  <link rel="stylesheet" href="../css/stone-base.css">
+  <link rel="stylesheet" href="../css/stone-components.css">
+  <link rel="stylesheet" href="../css/stone-shells.css">
+  <script src="../js/stone-ui.js" defer></script>
+  <script src="../js/stone-suite-chrome.js" defer></script>
+  <script src="./compact-utility.js" defer></script>
+</head>
+<body data-root-prefix=".." data-stone-app="compact">
+  <a href="#main-content" class="skip-link">Skip to converter</a>
+
+  <!-- Shell Variant A: shell-compact (Focused Single-Task Utility) -->
+  <div class="stone-shell--compact">
+    <header class="stone-topbar">
+      <div class="stone-topbar__start">
+        <button type="button" class="stone-suite-trigger" popovertarget="stone-suite-popover" aria-haspopup="menu" aria-expanded="false">
+          <span class="stone-suite-mark" aria-hidden="true">
+            <svg class="stone-icon icon-w-medium" viewBox="0 0 24 24"><use href="#stone-i-brand"></use></svg>
+          </span>
+          <span>Stone Converter</span>
+          <svg class="stone-icon icon-w-medium" viewBox="0 0 24 24" aria-hidden="true"><use href="#stone-i-chevrons-up-down"></use></svg>
+        </button>
+      </div>
+
+      <div class="stone-topbar__end">
+        <button type="button" class="stone-cmdk-trigger" data-cmdk-open aria-label="Search suite or jump to view (Ctrl+K)">
+          <svg class="stone-icon icon-w-regular" viewBox="0 0 24 24" aria-hidden="true"><use href="#stone-i-search"></use></svg>
+          <span class="stone-cmdk-trigger__label">Switch app&#8230;</span>
+          <kbd class="stone-kbd">Ctrl+K</kbd>
+        </button>
+
+        <button type="button" class="stone-btn" data-variant="ghost" data-size="sm" data-dir-toggle aria-label="Toggle LTR or RTL writing direction" aria-pressed="false">
+          <svg class="stone-icon icon-w-regular" viewBox="0 0 24 24" aria-hidden="true"><use href="#stone-i-arrow-left-right"></use></svg>
+          <span data-dir-label>LTR</span>
+        </button>
+
+        <button type="button" class="stone-btn stone-btn--icon" data-variant="ghost" data-size="sm" data-theme-toggle aria-label="Toggle Light or Dark mode" aria-pressed="false">
+          <span class="stone-swap" aria-hidden="true">
+            <svg class="stone-icon icon-w-medium" data-theme-icon="light" data-swap-state="off" viewBox="0 0 24 24"><use href="#stone-i-sun"></use></svg>
+            <svg class="stone-icon icon-w-medium" data-theme-icon="dark" data-swap-state="on" viewBox="0 0 24 24"><use href="#stone-i-moon"></use></svg>
+          </span>
+        </button>
+
+        <button type="button" class="stone-btn stone-btn--icon" data-variant="surface" data-size="sm" popovertarget="stone-settings-popover" aria-label="Open theme and appearance settings" aria-expanded="false">
+          <svg class="stone-icon icon-w-medium" viewBox="0 0 24 24" aria-hidden="true"><use href="#stone-i-settings"></use></svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- Sibling Horizontal Tab Underline (1-3 utility tabs max, ?tab= synced) -->
+    <div class="stone-tabs-bar">
+      <div class="stone-container" data-width="md">
+        <div class="stone-tabs" role="tablist" aria-label="Utility tools" data-sync-url="true">
+          <button type="button" id="tab-btn-converter" class="stone-tab" role="tab" aria-selected="true" aria-controls="panel-converter" data-tab-value="converter" tabindex="0">
+            Unit &amp; Scale Converter
+          </button>
+          <button type="button" id="tab-btn-radius" class="stone-tab" role="tab" aria-selected="false" aria-controls="panel-radius" data-tab-value="shapes" tabindex="-1">
+            Shapes &amp; Spacing Scale
+          </button>
+          <button type="button" id="tab-btn-notes" class="stone-tab" role="tab" aria-selected="false" aria-controls="panel-notes" data-tab-value="anatomy" tabindex="-1">
+            Shell Anatomy
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <main id="main-content" class="stone-main" tabindex="-1">
+      <div class="stone-container stone-stack stone-stack--section" data-width="md">
+        <header class="stone-row-baseline">
+          <div class="stone-stack stone-stack--tight">
+            <div class="stone-cluster" style="gap: var(--space-2);">
+              <span class="stone-badge" data-tone="accent" data-shape="pill">shell-compact · v1.1.2</span>
+              <span class="stone-badge" data-shape="pill">688px Centered Canvas</span>
+            </div>
+            <h1 class="text-title">Stone Base Token &amp; Unit Converter</h1>
+            <p class="text-body-sm text-secondary">
+              Focused single-task Stone app with a frosted ceramic topbar, URL-synced underline tabs, and zero sidebar clutter.
+            </p>
+          </div>
+          <a href="../index.html" class="stone-btn stone-btn--icon-start stone-arrow-btn" data-variant="surface" data-size="sm" data-shape="pill" data-arrow="back">
+            <svg class="stone-icon icon-w-medium icon-directional stone-icon--arrow" viewBox="0 0 24 24" aria-hidden="true"><use href="#stone-i-arrow-left"></use></svg>
+            <span>Back to Reference</span>
+          </a>
+        </header>
+
+        <!-- Panel 1: Interactive Converter -->
+        <section id="panel-converter" role="tabpanel" aria-labelledby="tab-btn-converter" class="stone-surface pad-lg stone-stack">
+          <div class="stone-row-baseline">
+            <h2 class="text-heading">Pixels &#8596; Root EMs &amp; Quantized Scale</h2>
+            <span class="text-caption text-mono" id="conv-base-note">Root: 16px · Quantized 4px / 8px Grid</span>
+          </div>
+
+          <div class="stone-cluster" style="align-items: flex-end;">
+            <div class="stone-field" style="flex: 1 1 11rem;">
+              <label class="stone-label" for="conv-input">Input Value</label>
+              <input id="conv-input" type="number" step="any" value="16" class="stone-input text-mono tabular-nums">
+            </div>
+
+            <button type="button" id="conv-swap-btn" class="stone-btn stone-btn--icon" data-variant="surface" aria-label="Swap conversion direction">
+              <svg class="stone-icon icon-w-medium" viewBox="0 0 24 24" aria-hidden="true"><use href="#stone-i-arrow-left-right"></use></svg>
+            </button>
+
+            <div class="stone-field" style="flex: 1 1 11rem;">
+              <label class="stone-label" for="conv-output">Converted Result</label>
+              <input id="conv-output" type="text" readonly value="1.000rem" class="stone-input text-mono tabular-nums">
+            </div>
+          </div>
+
+          <div class="stone-well pad-sm stone-row-baseline">
+            <div class="stone-stack stone-stack--tight">
+              <div id="conv-direction-label" class="text-body-sm text-semibold">Converting Pixels (px) &#8594; Root EMs (rem)</div>
+              <div id="conv-css-snippet" class="text-caption text-mono"><bdi>font-size: 1.000rem; /* 16px */</bdi></div>
+            </div>
+            <button type="button" id="conv-copy-btn" class="stone-btn stone-btn--icon-start" data-variant="primary" data-size="sm" data-shape="pill" data-copy-text="font-size: 1.000rem;">
+              <svg class="stone-icon icon-w-regular" viewBox="0 0 24 24" aria-hidden="true"><use href="#stone-i-copy"></use></svg>
+              <span>Copy CSS</span>
+            </button>
+          </div>
+        </section>
+
+        <!-- Panel 2: Shapes & Concentric Geometry Visualizer -->
+        <section id="panel-radius" role="tabpanel" aria-labelledby="tab-btn-radius" class="stone-surface pad-lg stone-stack" hidden>
+          <div class="stone-row-baseline">
+            <div class="stone-stack stone-stack--tight">
+              <h2 class="text-heading">Squircle &amp; Concentric Geometry</h2>
+              <p class="text-caption">Active profile: <strong data-corner-readout>Squircle (smooth)</strong> · Formula <code class="stone-code-inline">max(4px, outer - pad - 1px)</code></p>
+            </div>
+            <div class="stone-segmented" role="group" aria-label="Corner shape profile">
+              <button type="button" class="stone-segmented__btn" data-corner-choice="squircle" data-active="true" aria-pressed="true">Squircle</button>
+              <button type="button" class="stone-segmented__btn" data-corner-choice="rounded" data-active="false" aria-pressed="false">Rounded</button>
+            </div>
+          </div>
+
+          <div class="stone-surface pad-md stone-stack stone-stack--tight">
+            <div class="stone-row-baseline">
+              <span class="text-body-sm text-semibold">Outer Surface Container (<code class="stone-code-inline">--radius-lg · 14px</code>)</span>
+              <span class="text-caption text-mono">Inner Well: max(4px, 14px - 16px - 1px) = 4px</span>
+            </div>
+            <div class="stone-well pad-sm stone-row-baseline">
+              <span class="text-caption">Inherited <code class="stone-code-inline">--outer-radius</code> computes inner radius without CSS cycles.</span>
+              <button type="button" class="stone-btn" data-variant="secondary" data-size="xs">Control (4px)</button>
+            </div>
+          </div>
+
+          <p class="text-body-sm text-secondary prose">
+            Stone Base v1.1.2 replaces fractional runtime multipliers with fixed <code class="stone-code-inline">rem</code> tokens on a crisp <code class="stone-code-inline">4px / 8px</code> grid for consistent legibility. Toggle <code class="stone-code-inline">.stone-table--compact</code> below when denser operational tables are required.
+          </p>
+
+          <div class="stone-row-baseline">
+            <span class="text-overline">Spacing Token Scale</span>
+            <button type="button" id="toggle-compact-table" class="stone-btn" data-variant="surface" data-size="xs" aria-pressed="false">Toggle Compact Table</button>
+          </div>
+
+          <div class="stone-inset stone-inset--bottom stone-table-wrap">
+            <table class="stone-table" id="conv-spacing-table">
+              <caption class="visually-hidden">Stone Base v1.1.2 spacing token scale</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Token</th>
+                  <th scope="col" class="is-numeric">rem</th>
+                  <th scope="col" class="is-numeric">px</th>
+                  <th scope="col">Primary Role</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td><code class="stone-code-inline">--space-1</code></td><td class="is-numeric">0.25rem</td><td class="is-numeric">4px</td><td>Tight inline gap</td></tr>
+                <tr><td><code class="stone-code-inline">--space-2</code></td><td class="is-numeric">0.5rem</td><td class="is-numeric">8px</td><td>Control &amp; chip padding</td></tr>
+                <tr><td><code class="stone-code-inline">--space-4</code></td><td class="is-numeric">1rem</td><td class="is-numeric">16px</td><td>Default card padding (<code class="stone-code-inline">.pad-md</code>)</td></tr>
+                <tr><td><code class="stone-code-inline">--space-6</code></td><td class="is-numeric">1.5rem</td><td class="is-numeric">24px</td><td>Section card padding (<code class="stone-code-inline">.pad-lg</code>)</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- Panel 3: Shell Anatomy -->
+        <section id="panel-notes" role="tabpanel" aria-labelledby="tab-btn-notes" class="stone-surface pad-lg stone-stack" hidden>
+          <h2 class="text-heading">When to Choose <code class="stone-code-inline">shell-compact</code></h2>
+          <p class="text-body-sm text-secondary prose">
+            Calculators, unit converters, and single-slot reservation flows do not need a permanent 256px sidebar. Keeping navigation inside a 48px ceramic topbar plus optional underline tabs preserves calm while sharing the Suite Switcher and <code class="stone-code-inline">Ctrl+K</code> launcher.
+          </p>
+          <div class="stone-cluster">
+            <a href="./reservations.html" class="stone-btn stone-btn--icon-end stone-arrow-btn" data-variant="primary" data-arrow="forward">
+              <span>Explore Reservations App</span>
+              <svg class="stone-icon icon-w-bold icon-directional stone-icon--arrow" viewBox="0 0 24 24" aria-hidden="true"><use href="#stone-i-arrow-right"></use></svg>
+            </a>
+            <a href="./workspace-app.html" class="stone-btn stone-btn--icon-end stone-arrow-btn" data-variant="ink" data-arrow="forward">
+              <span>Compare with Worker Workspace</span>
+              <svg class="stone-icon icon-w-bold icon-directional stone-icon--arrow" viewBox="0 0 24 24" aria-hidden="true"><use href="#stone-i-arrow-right"></use></svg>
+            </a>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

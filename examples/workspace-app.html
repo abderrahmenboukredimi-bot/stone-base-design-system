@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-corner="squircle">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="color-scheme" content="light dark">
+  <meta name="stone-storage-prefix" content="stone">
+  <link rel="icon" href="data:,">
+  <title>Worker Operations &amp; Analytics — Workspace Shell (Stone Base v1.1.2)</title>
+  <script src="../js/stone-boot.js"></script>
+  <link rel="stylesheet" href="../css/stone-tokens.css">
+  <link rel="stylesheet" href="../css/stone-base.css">
+  <link rel="stylesheet" href="../css/stone-components.css">
+  <link rel="stylesheet" href="../css/stone-shells.css">
+  <link rel="stylesheet" href="../css/stone-patterns.css">
+  <script src="../js/stone-ui.js" defer></script>
+  <script src="../js/stone-suite-chrome.js" defer></script>
+  <script src="./workspace-app.js" defer></script>
+</head>
+<body data-root-prefix=".." data-stone-app="workspace">
+  <a href="#main-content" class="skip-link">Skip to worker console</a>
+
+  <div class="stone-shell--workspace" data-sidebar-collapsed="false">
+    <aside class="stone-sidebar" aria-label="Worker operations navigation">
+      <button type="button" class="stone-suite-trigger" popovertarget="stone-suite-popover" aria-haspopup="menu" aria-expanded="false">
+        <span class="stone-suite-trigger__brand">
+          <span class="stone-suite-mark" aria-hidden="true">
+            <svg class="stone-icon icon-w-medium" viewBox="0 0 24 24"><use href="#stone-i-brand"></use></svg>
+          </span>
+          <span class="stone-sidebar__label">Worker Ops</span>
+        </span>
+        <svg class="stone-icon icon-w-medium stone-suite-chevron" viewBox="0 0 24 24" aria-hidden="true"><use href="#stone-i-chevrons-up-down"></use></svg>
+      </button>
+
+      <nav class="stone-sidebar__group" aria-label="Operations views" data-scrollspy>
+        <div class="stone-sidebar__group-title">Operations</div>
+        <a href="#kpi-summary" class="stone-sidebar__link" aria-current="location">
+          <svg class="stone-icon icon-w-medium" viewBox="0 0 24 24" aria-hidden="true"><use href="#stone-i-layout"></use></svg>
+          <span class="stone-sidebar__label">Shift Overview</span>
+        </a>
+        <a href="#analytics-chart" class="stone-sidebar__link">
+          <svg class="stone-icon icon-w-medium" viewBox="0 0 24 24" aria-hidden="true"><use href="#stone-i-chart"></use></svg>
+          <span class="stone-sidebar__label">Dispatch Graphs</span>
+        </a>
+        <a href="#worker-roster" class="stone-sidebar__link">
+          <svg class="stone-icon icon-w-medium" viewBox="0 0 24 24" aria-hidden="true"><use href="#stone-i-users"></use></svg>
+          <span class="stone-sidebar__label">Worker Roster</span>
+        </a>
+      </nav>
+
+      <nav class="stone-sidebar__group" aria-label="Suite apps">
+        <div class="stone-sidebar__group-title">Suite Companion</div>
+        <a href="./reservations.html" class="stone-sidebar__link">
+          <svg class="stone-icon icon-w-medium" viewBox="0 0 24 24" aria-hidden="true"><use href="#stone-i-calendar"></use></svg>
+          <span class="stone-sidebar__label">Studio Reservations</span>
+        </a>
+        <a href="./automation-runs.html" class="stone-sidebar__link">
+          <svg class="stone-icon icon-w-medium" viewBox="0 0 24 24" aria-hidden="true"><use href="#stone-i-bolt"></use></svg>
+          <span class="stone-sidebar__label">Automation Runs</span>
+        </a>
+      </nav>
+
+      <div class="stone-sidebar__footer">
+        <a href="../index.html" class="stone-sidebar__link">
+          <svg class="stone-icon icon-w-medium icon-directional" viewBox="0 0 24 24" aria-hidden="true"><use href="#stone-i-arrow-left"></use></svg>
+          <span class="stone-sidebar__label">Reference Catalog</span>
+        </a>
+        <button type="button" class="stone-sidebar__link" data-sidebar-toggle aria-expanded="true">
+          <svg class="stone-icon icon-w-medium" viewBox="0 0 24 24" aria-hidden="true"><use href="#stone-i-sidebar"></use></svg>
+          <span class="stone-sidebar__label">Collapse Rail</span>
+        </button>
+      </div>
+    </aside>
+
+    <div class="stone-sidebar-inset">
+      <header class="stone-topbar">
+        <div class="stone-topbar__start">
+          <button type="button" class="stone-btn stone-btn--icon stone-mobile-only-btn" data-variant="ghost" data-size="sm" data-drawer-open="stone-mobile-drawer" aria-label="Open navigation menu">
+            <svg class="stone-icon icon-w-medium" viewBox="0 0 24 24" aria-hidden="true"><use href="#stone-i-menu"></use></svg>
+          </button>
+          <button type="button" class="stone-btn stone-btn--icon stone-desktop-only-btn" data-variant="ghost" data-size="sm" data-sidebar-toggle aria-label="Toggle navigation rail (Ctrl+B)" aria-expanded="true">
+            <svg class="stone-icon icon-w-medium" viewBox="0 0 24 24" aria-hidden="true"><use href="#stone-i-sidebar"></use></svg>
+          </button>
+          <span class="stone-topbar__title">Worker Operations &amp; Analytics</span>
+        </div>
+
+        <div class="stone-topbar__end">
+          <button type="button" class="stone-cmdk-trigger" data-cmdk-open aria-label="Quick command launcher (Ctrl+K)">
+            <svg class="stone-icon icon-w-regular" viewBox="0 0 24 24" aria-hidden="true"><use href="#stone-i-search"></use></svg>
+            <span class="stone-cmdk-trigger__label">Switch app&#8230;</span>
+            <kbd class="stone-kbd">Ctrl+K</kbd>
+          </button>
+
+          <button type="button" class="stone-btn" data-variant="ghost" data-size="sm" data-dir-toggle aria-label="Toggle LTR or RTL writing direction" aria-pressed="false">
+            <svg class="stone-icon icon-w-regular" viewBox="0 0 24 24" aria-hidden="true"><use href="#stone-i-arrow-left-right"></use></svg>
+            <span data-dir-label>LTR</span>
+          </button>
+
+          <button type="button" class="stone-btn stone-btn--icon" data-variant="ghost" data-size="sm" data-theme-toggle aria-label="Toggle Light or Dark mode" aria-pressed="false">
+            <span class="stone-swap" aria-hidden="true">
+              <svg class="stone-icon icon-w-medium" data-theme-icon="light" data-swap-state="off" viewBox="0 0 24 24"><use href="#stone-i-sun"></use></svg>
+              <svg class="stone-icon icon-w-medium" data-theme-icon="dark" data-swap-state="on" viewBox="0 0 24 24"><use href="#stone-i-moon"></use></svg>
+            </span>
+          </button>
+
+          <button type="button" class="stone-btn stone-btn--icon" data-variant="surface" data-size="sm" popovertarget="stone-settings-popover" aria-label="Open theme and appearance settings" aria-expanded="false">
+            <svg class="stone-icon icon-w-medium" viewBox="0 0 24 24" aria-hidden="true"><use href="#stone-i-settings"></use></svg>
+          </button>
+        </div>
+      </header>
+
+      <div class="stone-workspace-body" id="ops-workspace-body" data-inspector-open="true">
+        <main id="main-content" class="stone-main stone-workspace-main" tabindex="-1">
+          <div class="stone-container stone-stack stone-stack--section" data-width="xl">
+            <header class="stone-row-baseline">
+              <div class="stone-stack stone-stack--tight">
+                <div class="stone-cluster" style="gap: var(--space-2);">
+                  <span class="stone-badge" data-tone="accent" data-shape="pill">shell-workspace · v1.1.2</span>
+                  <span class="stone-badge" data-shape="pill">Worker Ops + Graphs</span>
+                </div>
+                <h1 class="text-title">Field Worker Operations</h1>
+                <p class="text-body-sm text-secondary">
+                  Manage live shift utilization, inspect throughput across team metrics, and reassign workers with a single visible-row selection dock.
+                </p>
+              </div>
+              <div class="stone-cluster">
+                <div class="stone-split-btn" role="group" aria-label="Shift dispatch actions">
+                  <button type="button" class="stone-btn stone-btn--icon-start" data-variant="primary" data-toast-trigger data-toast-title="Shift schedule published" data-toast-desc="All 24 active technician assignments synced." data-toast-tone="success">
+                    <svg class="stone-icon icon-w-medium" viewBox="0 0 24 24" aria-hidden="true"><use href="#stone-i-plus"></use></svg>
+                    <span>Publish Dispatch</span>
+                  </button>
+                  <button type="button" class="stone-btn stone-btn--icon" data-variant="primary" popovertarget="ops-dispatch-popover" aria-label="More dispatch actions" aria-expanded="false">
+                    <svg class="stone-icon icon-w-bold" viewBox="0 0 24 24" aria-hidden="true"><use href="#stone-i-chevron-down"></use></svg>
+                  </button>
+                </div>
+              </div>
+            </header>
+
+            <!-- Container-Query Bento KPI Row -->
+            <section id="kpi-summary" class="stone-bento-grid" aria-label="Shift performance metrics">
+              <article class="stone-bento-card">
+                <div class="stone-bento-card__top">
+                  <span class="text-overline">On Shift</span>
+                  <span class="stone-trend-pill" data-trend="up">
+                    <svg class="stone-icon icon-w-bold" style="--icon-size: 0.875rem;" viewBox="0 0 24 24" aria-hidden="true"><use href="#stone-i-trending-up"></use></svg>
+                    <span>+2</span>
+                  </span>
+                </div>
+                <div class="stone-bento-card__value">24 / 28</div>
+                <p class="text-caption">Active across 3 service zones</p>
+              </article>
+
+              <article class="stone-bento-card">
+                <div class="stone-bento-card__top">
+                  <span class="text-overline">Utilization</span>
+                  <span class="stone-trend-pill" data-trend="up">
+                    <svg class="stone-icon icon-w-bold" style="--icon-size: 0.875rem;" viewBox="0 0 24 24" aria-hidden="true"><use href="#stone-i-trending-up"></use></svg>
+                    <span>+4.8%</span>
+                  </span>
+                </div>
+                <div class="stone-bento-card__value">86.4%</div>
+                <p class="text-caption">Target band 80%–90%</p>
+              </article>
+
+              <article class="stone-bento-card">
+                <div class="stone-bento-card__top">
+                  <span class="text-overline">Open Shifts</span>
+                  <span class="stone-trend-pill" data-trend="flat">
+                    <span>4 open</span>
+                  </span>
+                </div>
+                <div class="stone-bento-card__value">4</div>
+                <p class="text-caption">2 evening bays need coverage</p>
+              </article>
+
+              <article class="stone-bento-card">
+                <div class="stone-bento-card__top">
+                  <span class="text-overline">Overtime</span>
+                  <span class="stone-trend-pill" data-trend="down">
+                    <svg class="stone-icon icon-w-bold" style="--icon-size: 0.875rem;" viewBox="0 0 24 24" aria-hidden="true"><use href="#stone-i-trending-down"></use></svg>
+                    <span>-1.5h</span>
+                  </span>
+                </div>
+                <div class="stone-bento-card__value">6.5h</div>
+                <p class="text-caption">Down from 8.0h last week</p>
+              </article>
+            </section>
+
+            <!-- Interactive Multi-Series Chart Card -->
+            <section id="analytics-chart" class="stone-surface stone-stack" aria-label="Team throughput and utilization chart">
+              <div class="stone-chart-card__header">
+                <div class="stone-chart-card__title">
+                  <h2 class="text-heading">Weekly Shift Capacity &amp; Dispatch Output</h2>
+                  <p class="text-caption">Interactive 100% sRGB chart series (<code class="stone-code-inline">--color-chart-1..3</code>). Select a metric or hover/focus data columns.</p>
+                </div>
+                <div class="stone-chart-tabs" role="tablist" aria-label="Chart metric view">
+                  <button type="button" class="stone-chart-tab" role="tab" aria-selected="true" data-chart-metric="utilization">
+                    <span class="stone-chart-tab__label">Utilization</span>
+                    <span class="stone-chart-tab__value">86.4%</span>
+                  </button>
+                  <button type="button" class="stone-chart-tab" role="tab" aria-selected="false" data-chart-metric="completed">
+                    <span class="stone-chart-tab__label">Tasks Completed</span>
+                    <span class="stone-chart-tab__value">312</span>
+                  </button>
+                  <button type="button" class="stone-chart-tab" role="tab" aria-selected="false" data-chart-metric="overtime">
+                    <span class="stone-chart-tab__label">Overtime Hours</span>
+                    <span class="stone-chart-tab__value">6.5h</span>
+                  </button>
+                </div>
+              </div>
+
+              <div class="pad-md stone-stack">
+                <div class="stone-chart-frame" id="worker-chart-frame">
+                  <svg class="stone-chart-svg" id="worker-chart-svg" viewBox="0 0 640 240" role="img" aria-label="Weekly utilization bar and trend chart">
+                    <title id="worker-chart-title">Weekly shift utilization across Monday through Sunday</title>
+                    <g id="worker-chart-grid"></g>
+                    <g id="worker-chart-series"></g>
+                    <g id="worker-chart-axes"></g>
+                  </svg>
+                  <div class="stone-chart-tooltip" id="worker-chart-tooltip" hidden role="status">
+                    <div class="text-caption text-semibold" id="chart-tip-day">Wed · Peak</div>
+                    <div class="stone-chart-tooltip__row">
+                      <span class="stone-cluster" style="gap: var(--space-1);">
+                        <span class="stone-chart-legend__swatch" style="--series-color: var(--color-chart-1);"></span>
+                        <span id="chart-tip-s1-label">Field Techs</span>
+                      </span>
+                      <span class="stone-chart-tooltip__val" id="chart-tip-s1-val">91%</span>
+                    </div>
+                    <div class="stone-chart-tooltip__row">
+                      <span class="stone-cluster" style="gap: var(--space-1);">
+                        <span class="stone-chart-legend__swatch" style="--series-color: var(--color-chart-2);"></span>
+                        <span id="chart-tip-s2-label">Dispatchers</span>
+                      </span>
+                      <span class="stone-chart-tooltip__val" id="chart-tip-s2-val">84%</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="stone-row-baseline">
+                  <ul class="stone-chart-legend" aria-label="Chart series legend">
+                    <li class="stone-chart-legend__item">
+                      <span class="stone-chart-legend__swatch" style="--series-color: var(--color-chart-1);"></span>
+                      <span id="legend-s1">Field Tech Utilization</span>
+                    </li>
+                    <li class="stone-chart-legend__item">
+                      <span class="stone-chart-legend__swatch" style="--series-color: var(--color-chart-2);"></span>
+                      <span id="legend-s2">Dispatcher Load</span>
+                    </li>
+                    <li class="stone-chart-legend__item">
+                      <span class="stone-chart-legend__swatch" style="--series-color: var(--color-chart-3);"></span>
+                      <span id="legend-s3">SLA Baseline</span>
+                    </li>
+                  </ul>
+                  <span class="text-caption text-mono" id="chart-range-note">Mon – Sun · Auto Theme Contrast</span>
+                </div>
+              </div>
+            </section>
+
+            <!-- Worker Shift Roster Table -->
+            <section id="worker-roster" class="stone-surface stone-stack" aria-label="Worker shift roster">
+              <div class="pad-md stone-row-baseline" style="padding-block-end: 0;">
+                <div class="stone-stack stone-stack--tight">
+                  <h2 class="text-heading">Shift Worker Roster</h2>
+                  <p class="text-caption">Filter roles, check visible workers for the centered ceramic dock, or click a row to inspect shifts.</p>
+                </div>
+                <div class="stone-cluster">
+                  <div class="stone-segmented" role="group" aria-label="Filter role" id="worker-role-filter">
+                    <button type="button" class="stone-segmented__btn" data-role-filter="all" aria-pressed="true">All</button>
+                    <button type="button" class="stone-segmented__btn" data-role-filter="field" aria-pressed="false">Field Tech</button>
+                    <button type="button" class="stone-segmented__btn" data-role-filter="dispatch" aria-pressed="false">Dispatcher</button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="pad-md stone-cluster" style="padding-block: 0;" data-chip-group aria-label="Active roster filter chips">
+                <span class="stone-chip" data-tone="accent" data-chip-label="Zone: Metro North">
+                  <span>Zone: Metro North</span>
+                  <button type="button" class="stone-chip__remove" aria-label="Remove filter Zone: Metro North">
+                    <svg class="stone-icon icon-w-bold" style="--icon-size: 0.75rem;" viewBox="0 0 24 24" aria-hidden="true"><use href="#stone-i-x"></use></svg>
+                  </button>
+                </span>
+                <span class="stone-chip" data-chip-label="Certification: L2">
+                  <span>Certification: L2</span>
+                  <button type="button" class="stone-chip__remove" aria-label="Remove filter Certification: L2">
+                    <svg class="stone-icon icon-w-bold" style="--icon-size: 0.75rem;" viewBox="0 0 24 24" aria-hidden="true"><use href="#stone-i-x"></use></svg>
+                  </button>
+                </span>
+                <button type="button" class="stone-btn" data-variant="ghost" data-size="xs" data-chip-reset hidden>Reset chips</button>
+              </div>
+
+              <div class="stone-inset stone-inset--bottom stone-table-wrap" data-selection-scope="worker-roster" data-floating-bar-target="worker-floating-bar">
+                <table class="stone-table stone-table--interactive">
+                  <caption class="visually-hidden">Field technicians and dispatchers on today's roster</caption>
+                  <thead>
+                    <tr>
+                      <th scope="col" style="inline-size: 2.75rem;">
+                        <input type="checkbox" class="stone-checkbox" data-select-all aria-label="Select all visible workers">
+                      </th>
+                      <th scope="col">Worker</th>
+                      <th scope="col">Role</th>
+                      <th scope="col">Presence</th>
+                      <th scope="col" class="is-numeric">Load</th>
+                      <th scope="col" class="is-numeric">Inspect</th>
+                    </tr>
+                  </thead>
+                  <tbody id="worker-table-body">
+                    <tr data-role="field" data-inspected="true" data-inspect-row="wrk-101" data-worker-name="Nadia Mansour" data-worker-role="Lead Field Tech · Zone A" data-worker-presence="On Shift" data-worker-tone="success" data-worker-shift="07:00 – 15:30" data-worker-load="88% (7/8 jobs)" data-worker-notes="Assigned emergency HVAC calibration routes along North Corridor. Zero overdue tickets.">
+                      <td><input type="checkbox" class="stone-checkbox" data-row-select aria-label="Select Nadia Mansour"></td>
+                      <td>
+                        <div class="text-body-sm text-semibold">Nadia Mansour</div>
+                        <div class="text-caption text-mono"><bdi>WRK-101</bdi> · Zone A</div>
+                      </td>
+                      <td>Field Tech</td>
+                      <td><span class="stone-badge" data-tone="success" data-shape="pill"><span class="stone-badge__dot" aria-hidden="true"></span><span>On Shift</span></span></td>
+                      <td class="is-numeric tabular-nums">88%</td>
+                      <td class="is-numeric">
+                        <button type="button" class="stone-btn" data-variant="surface" data-size="xs" data-shape="pill" data-trigger-inspect="wrk-101">Inspect</button>
+                      </td>
+                    </tr>
+                    <tr data-role="field" data-inspect-row="wrk-104" data-worker-name="Tariq Benali" data-worker-role="Senior Technician · Zone B" data-worker-presence="Busy" data-worker-tone="accent" data-worker-shift="08:00 – 16:30" data-worker-load="96% (8/8 jobs)" data-worker-notes="Currently on active Studio Bay 3 hardware retrofit. Eligible for overtime handoff at 16:00.">
+                      <td><input type="checkbox" class="stone-checkbox" data-row-select aria-label="Select Tariq Benali"></td>
+                      <td>
+                        <div class="text-body-sm text-semibold">Tariq Benali</div>
+                        <div class="text-caption text-mono"><bdi>WRK-104</bdi> · Zone B</div>
+                      </td>
+                      <td>Field Tech</td>
+                      <td><span class="stone-badge" data-tone="accent" data-shape="pill"><span class="stone-badge__dot" aria-hidden="true"></span><span>Busy</span></span></td>
+                      <td class="is-numeric tabular-nums">96%</td>
+                      <td class="is-numeric">
+                        <button type="button" class="stone-btn" data-variant="surface" data-size="xs" data-shape="pill" data-trigger-inspect="wrk-104">Inspect</button>
+                      </td>
+                    </tr>
+                    <tr data-role="dispatch" data-inspect-row="wrk-202" data-worker-name="Elena Rostova" data-worker-role="Shift Dispatcher · Central" data-worker-presence="Break" data-worker-tone="warning" data-worker-shift="09:00 – 17:30" data-worker-load="62% (5/8 queues)" data-worker-notes="Mid-shift 30m break until 12:45. Backup routing automatically covered by Central Pool.">
+                      <td><input type="checkbox" class="stone-checkbox" data-row-select aria-label="Select Elena Rostova"></td>
+                      <td>
+                        <div class="text-body-sm text-semibold">Elena Rostova</div>
+                        <div class="text-caption text-mono"><bdi>WRK-202</bdi> · Central</div>
+                      </td>
+                      <td>Dispatcher</td>
+                      <td><span class="stone-badge" data-tone="warning" data-shape="pill"><span class="stone-badge__dot" aria-hidden="true"></span><span>Break</span></span></td>
+                      <td class="is-numeric tabular-nums">62%</td>
+                      <td class="is-numeric">
+                        <button type="button" class="stone-btn" data-variant="surface" data-size="xs" data-shape="pill" data-trigger-inspect="wrk-202">Inspect</button>
+                      </td>
+                    </tr>
+                    <tr data-role="dispatch" data-inspect-row="wrk-209" data-worker-name="Marcus Vance" data-worker-role="Night Dispatcher · South" data-worker-presence="Off Duty" data-worker-tone="neutral" data-worker-shift="22:00 – 06:00" data-worker-load="0% (Next shift)" data-worker-notes="Off duty between rotations. Next scheduled start at 22:00 local time.">
+                      <td><input type="checkbox" class="stone-checkbox" data-row-select aria-label="Select Marcus Vance"></td>
+                      <td>
+                        <div class="text-body-sm text-semibold">Marcus Vance</div>
+                        <div class="text-caption text-mono"><bdi>WRK-209</bdi> · South</div>
+                      </td>
+                      <td>Dispatcher</td>
+                      <td><span class="stone-badge" data-shape="pill"><span class="stone-badge__dot" aria-hidden="true"></span><span>Off Duty</span></span></td>
+                      <td class="is-numeric tabular-nums">0%</td>
+                      <td class="is-numeric">
+                        <button type="button" class="stone-btn" data-variant="surface" data-size="xs" data-shape="pill" data-trigger-inspect="wrk-209">Inspect</button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </section>
+          </div>
+        </main>
+
+        <!-- 3-Pane Trailing Contextual Worker Inspector -->
+        <aside class="stone-inspector" id="ops-desktop-inspector" aria-label="Selected worker details">
+          <div class="stone-inspector__header">
+            <div class="stone-stack stone-stack--tight">
+              <span class="text-overline">Worker Inspector</span>
+              <h2 class="text-heading" data-worker-field="name">Nadia Mansour</h2>
+            </div>
+            <button type="button" class="stone-btn stone-btn--icon" data-variant="ghost" data-size="xs" data-inspector-close aria-label="Close worker inspector">
+              <svg class="stone-icon icon-w-medium" viewBox="0 0 24 24" aria-hidden="true"><use href="#stone-i-x"></use></svg>
+            </button>
+          </div>
+
+          <div class="stone-cluster">
+            <span class="stone-badge" data-tone="success" data-shape="pill" data-worker-badge data-worker-field="presence"><span class="stone-badge__dot" aria-hidden="true"></span><span>On Shift</span></span>
+            <span class="text-caption text-mono" data-worker-field="id">WRK-101</span>
+          </div>
+
+          <dl class="stone-prop-grid">
+            <div class="stone-prop-row">
+              <dt>Role</dt>
+              <dd data-worker-field="role">Lead Field Tech · Zone A</dd>
+            </div>
+            <div class="stone-prop-row">
+              <dt>Shift Window</dt>
+              <dd class="tabular-nums" data-worker-field="shift">07:00 – 15:30</dd>
+            </div>
+            <div class="stone-prop-row">
+              <dt>Current Load</dt>
+              <dd class="tabular-nums" data-worker-field="load">88% (7/8 jobs)</dd>
+            </div>
+          </dl>
+
+          <div class="stone-well pad-sm stone-stack stone-stack--tight">
+            <span class="text-overline">Dispatch Notes</span>
+            <p class="text-caption" data-worker-field="notes">
+              Assigned emergency HVAC calibration routes along North Corridor. Zero overdue tickets.
+            </p>
+          </div>
+
+          <button type="button" class="stone-btn" data-variant="primary" data-shape="pill" data-toast-trigger data-toast-title="Shift reassignment sent" data-toast-desc="Worker updated in dispatch queue." data-toast-tone="success">
+            Reassign Next Shift
+          </button>
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <!-- Anchored Dispatch Menu Popover -->
+  <div id="ops-dispatch-popover" class="stone-overlay stone-popover" popover="auto" data-anchored="true">
+    <div class="stone-menu-list" role="menu" aria-label="Dispatch options">
+      <button type="button" class="stone-menu-item" role="menuitem" data-toast-trigger data-toast-title="Roster exported to CSV" data-toast-tone="neutral">
+        <span>Export Roster CSV</span>
+      </button>
+      <button type="button" class="stone-menu-item" role="menuitem" data-toast-trigger data-toast-title="Capacity rebalanced" data-toast-desc="2 open shifts flagged for coverage." data-toast-tone="accent">
+        <span>Auto-Balance Zone B</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Centered Ceramic Floating Action Dock -->
+  <div id="worker-floating-bar" class="stone-floating-bar" data-floating-bar="worker-roster" role="region" aria-label="Bulk worker actions" hidden>
+    <span class="stone-floating-bar__count" data-floating-count>0 items selected</span>
+    <button type="button" class="stone-btn" data-variant="primary" data-size="xs" data-shape="pill" data-toast-trigger data-toast-title="Zone reassigned" data-toast-desc="Selected workers moved to evening coverage." data-toast-tone="success">Reassign Zone</button>
+    <button type="button" class="stone-btn" data-variant="surface" data-size="xs" data-shape="pill" data-clear-selection>Clear</button>
+  </div>
+
+  <!-- Mobile Worker Inspector Dialog (< 64rem Parity) -->
+  <dialog id="ops-inspector-dialog" class="stone-modal stone-dialog" data-width="sm" closedby="any" aria-labelledby="ops-dialog-title">
+    <header class="stone-dialog__header">
+      <div class="stone-stack stone-stack--tight">
+        <span class="text-overline">Worker Inspector</span>
+        <h2 id="ops-dialog-title" class="text-heading" data-worker-field="name">Nadia Mansour</h2>
+      </div>
+      <button type="button" class="stone-btn stone-btn--icon" data-variant="ghost" data-size="xs" data-dialog-close aria-label="Close worker inspector">
+        <svg class="stone-icon icon-w-medium" viewBox="0 0 24 24" aria-hidden="true"><use href="#stone-i-x"></use></svg>
+      </button>
+    </header>
+    <div class="stone-dialog__body stone-stack">
+      <div class="stone-cluster">
+        <span class="stone-badge" data-tone="success" data-shape="pill" data-worker-badge data-worker-field="presence"><span class="stone-badge__dot" aria-hidden="true"></span><span>On Shift</span></span>
+        <span class="text-caption text-mono" data-worker-field="id">WRK-101</span>
+      </div>
+      <dl class="stone-prop-grid">
+        <div class="stone-prop-row"><dt>Role</dt><dd data-worker-field="role">Lead Field Tech · Zone A</dd></div>
+        <div class="stone-prop-row"><dt>Shift Window</dt><dd class="tabular-nums" data-worker-field="shift">07:00 – 15:30</dd></div>
+        <div class="stone-prop-row"><dt>Current Load</dt><dd class="tabular-nums" data-worker-field="load">88% (7/8 jobs)</dd></div>
+      </dl>
+      <div class="stone-well pad-sm">
+        <p class="text-caption" data-worker-field="notes">Assigned emergency HVAC calibration routes along North Corridor. Zero overdue tickets.</p>
+      </div>
+    </div>
+    <footer class="stone-dialog__footer">
+      <button type="button" class="stone-btn" data-variant="ghost" data-dialog-close>Close</button>
+      <button type="button" class="stone-btn" data-variant="primary" data-dialog-action="reassign-worker">Reassign Shift</button>
+    </footer>
+  </dialog>
+</body>
+</html>
