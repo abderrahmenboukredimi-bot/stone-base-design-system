@@ -1,0 +1,16 @@
+# Stone Base (Level-0 Universal Design System · v1.1.2)
+> Minimal, calm, high-craft Warm Chalk / Neutral Obsidian (`72°`) + Electric Cobalt (`258°–260°`) design system bridging focused utilities, graphs, worker shift management, reservation schedulers, and background automation consoles.
+
+## Specification & Implementation Files
+- [AGENTS Quick Portable Contract](STONE-SYSTEM-PORTABLE.md): Condensed `< 24 KB` single-file rules, Pure CSS + Tailwind v4 bridges, verified palette summary, and 4-domain guide.
+- [Antigravity Workspace Skill](.agents/skills/stone-base/SKILL.md): Progressive agent skill for integrating or migrating apps cleanly (`references/tokens-and-tailwind.md`, `references/domains-v1_1_2.md`).
+- [01 — Foundations and Color Tokens](spec/01-foundations-and-tokens.md): Two-tier OKLCH ramps, Ceramic transparency tokens, `--color-chart-1..6`, `.dark` `data-theme-switching="true"` contract, and verified contrast table.
+- [02 — Boxes, Surfaces, and Sizing](spec/02-boxes-and-surfaces.md): 6-box hierarchy (`Canvas`, `Well`, `Surface`, `Raised`, `Overlay`, `Modal`), selective `0.94–0.95` ceramic glass chrome, quantized `--box-pad-xs..lg`, `--container-sm..xl`, 4 shape tracks, and concentric radii.
+- [03 — Typography and Layout](spec/03-typography-and-layout.md): Role-based `rem` type scale, `16px` mobile input floor, `4px / 8px` spacing scale, RTL logical properties, `@container` reflow, and `320px` guarantees.
+- [04 — Interactions and Motion](spec/04-interactions-and-motion.md): Frequency gate (`0ms` shortcuts/Cmd+K), `--ease-out`, 7 core button variants (`>= 5.2:1` Dark hover), hold-to-confirm, hoverable/Escape tooltips, and `prefers-reduced-motion`.
+- [05 — Suite Shell, Accessibility, and UX Copy](spec/05-suite-shell-and-copy.md): `shell-compact` vs. `shell-workspace`, Suite Switcher, `#main-content`, `48px` collapsed rail, mobile drawer parity, visible-row floating dock, and copy rules.
+- [06 — Graphs & Operational Domain Patterns](spec/06-domain-patterns.md): `--color-chart-1..6`, chart card tabs/tooltips, Bento + worker presence pills, 5-state calendar/slot picker, and 6-state automation waterfall traces.
+- [AI Migration Prompts](prompts/SWITCH-TO-STONE.md): Track A / Track B prompts (`Audit → Migrate → Bootstrap → Compliance Gate`).
+- [Core Stylesheets & Runtime](css/stone-tokens.css): Layered `stone-tokens.css`, `stone-base.css`, `stone-components.css`, `stone-shells.css`, additive `stone-patterns.css`, optional `stone-compat-v1_1.css`, `js/stone-boot.js`, and `js/stone-ui.js`.
+- [Suite Reference Showcase](index.html): Live interactive documentation + 4 suite examples: [Compact Utility](examples/compact-utility.html), [Worker Operations & Charts](examples/workspace-app.html), [Studio Reservations](examples/reservations.html), and [Automation Runs](examples/automation-runs.html).
+- [Automated Verification Gate](scripts/verify_stone.py): Static OKLCH/gamut/contrast/CSP/parity linter + Playwright browser suite.

@@ -1,0 +1,1698 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-corner="squircle">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="color-scheme" content="light dark">
+  <meta name="stone-storage-prefix" content="stone">
+  <link rel="icon" href="data:,">
+  <title>Stone Base v1.1.2 — Level-0 Design System &amp; HTML Reference</title>
+  <script src="./js/stone-boot.js"></script>
+  <link rel="stylesheet" href="./css/stone-tokens.css">
+  <link rel="stylesheet" href="./css/stone-base.css">
+  <link rel="stylesheet" href="./css/stone-components.css">
+  <link rel="stylesheet" href="./css/stone-shells.css">
+  <link rel="stylesheet" href="./css/stone-patterns.css">
+  <link rel="stylesheet" href="./css/reference-docs.css">
+  <script src="./js/stone-ui.js" defer></script>
+  <script src="./js/stone-suite-chrome.js" defer></script>
+  <script src="./js/reference-docs.js" defer></script>
+</head>
+<body data-root-prefix="." data-stone-app="catalog">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Adaptive Workspace Shell -->
+  <div class="stone-shell--workspace" data-sidebar-collapsed="false">
+    <aside class="stone-sidebar" aria-label="Stone Base reference navigation">
+      <button type="button" class="stone-suite-trigger" popovertarget="stone-suite-popover" aria-haspopup="menu" aria-expanded="false">
+        <span class="stone-suite-trigger__brand">
+          <span class="stone-suite-mark" aria-hidden="true">
+            <svg class="stone-icon icon-w-medium" viewBox="0 0 24 24">
+              <use href="#stone-i-brand"></use>
+            </svg>
+          </span>
+          <span class="stone-sidebar__label">Stone Base v1.1.2</span>
+        </span>
+        <svg class="stone-icon icon-w-medium stone-suite-chevron" viewBox="0 0 24 24" aria-hidden="true">
+          <use href="#stone-i-chevrons-up-down"></use>
+        </svg>
+      </button>
+
+      <nav class="stone-sidebar__group" aria-label="Specification chapters" data-scrollspy>
+        <div class="stone-sidebar__group-title">Foundations</div>
+        <a href="#overview" class="stone-sidebar__link" aria-current="location">
+          <svg class="stone-icon icon-w-medium" viewBox="0 0 24 24" aria-hidden="true"><use href="#stone-i-brand"></use></svg>
+          <span class="stone-sidebar__label">Quick Start</span>
+        </a>
+        <a href="#colors" class="stone-sidebar__link">
+          <svg class="stone-icon icon-w-medium" viewBox="0 0 24 24" aria-hidden="true"><use href="#stone-i-palette"></use></svg>
+          <span class="stone-sidebar__label">Color Palettes</span>
+        </a>
+        <a href="#typography" class="stone-sidebar__link">
+          <svg class="stone-icon icon-w-medium" viewBox="0 0 24 24" aria-hidden="true"><use href="#stone-i-type"></use></svg>
+          <span class="stone-sidebar__label">Typography &amp; Scale</span>
+        </a>
+        <a href="#boxes" class="stone-sidebar__link">
+          <svg class="stone-icon icon-w-medium" viewBox="0 0 24 24" aria-hidden="true"><use href="#stone-i-layers"></use></svg>
+          <span class="stone-sidebar__label">Boxes &amp; Radii</span>
+        </a>
+      </nav>
+
+      <nav class="stone-sidebar__group" aria-label="Component reference" data-scrollspy>
+        <div class="stone-sidebar__group-title">Components &amp; Domains</div>
+        <a href="#buttons" class="stone-sidebar__link">
+          <svg class="stone-icon icon-w-medium" viewBox="0 0 24 24" aria-hidden="true"><use href="#stone-i-plus"></use></svg>
+          <span class="stone-sidebar__label">Buttons &amp; Actions</span>
+        </a>
+        <a href="#arrows" class="stone-sidebar__link">
+          <svg class="stone-icon icon-w-medium icon-directional" viewBox="0 0 24 24" aria-hidden="true"><use href="#stone-i-arrow-right"></use></svg>
+          <span class="stone-sidebar__label">Arrows &amp; Icons</span>
+        </a>
+        <a href="#forms" class="stone-sidebar__link">
+          <svg class="stone-icon icon-w-medium" viewBox="0 0 24 24" aria-hidden="true"><use href="#stone-i-sliders"></use></svg>
+          <span class="stone-sidebar__label">Forms &amp; Controls</span>
+        </a>
+        <a href="#overlays" class="stone-sidebar__link">
+          <svg class="stone-icon icon-w-medium" viewBox="0 0 24 24" aria-hidden="true"><use href="#stone-i-bell"></use></svg>
+          <span class="stone-sidebar__label">Overlays &amp; Tables</span>
+        </a>
+        <a href="#domains" class="stone-sidebar__link">
+          <svg class="stone-icon icon-w-medium" viewBox="0 0 24 24" aria-hidden="true"><use href="#stone-i-chart"></use></svg>
+          <span class="stone-sidebar__label">Graphs &amp; Domains</span>
+        </a>
+        <a href="#shells" class="stone-sidebar__link">
+          <svg class="stone-icon icon-w-medium" viewBox="0 0 24 24" aria-hidden="true"><use href="#stone-i-layout"></use></svg>
+          <span class="stone-sidebar__label">Suite Blueprint</span>
+        </a>
+      </nav>
+
+      <div class="stone-sidebar__footer">
+        <a href="./examples/workspace-app.html" class="stone-sidebar__link">
+          <svg class="stone-icon icon-w-medium" viewBox="0 0 24 24" aria-hidden="true"><use href="#stone-i-users"></use></svg>
+          <span class="stone-sidebar__label">Worker Ops + Charts</span>
+        </a>
+        <a href="./examples/reservations.html" class="stone-sidebar__link">
+          <svg class="stone-icon icon-w-medium" viewBox="0 0 24 24" aria-hidden="true"><use href="#stone-i-calendar"></use></svg>
+          <span class="stone-sidebar__label">Reservations Demo</span>
+        </a>
+        <a href="./examples/automation-runs.html" class="stone-sidebar__link">
+          <svg class="stone-icon icon-w-medium" viewBox="0 0 24 24" aria-hidden="true"><use href="#stone-i-bolt"></use></svg>
+          <span class="stone-sidebar__label">Automation Runs</span>
+        </a>
+        <a href="./examples/compact-utility.html" class="stone-sidebar__link">
+          <svg class="stone-icon icon-w-medium" viewBox="0 0 24 24" aria-hidden="true"><use href="#stone-i-sliders"></use></svg>
+          <span class="stone-sidebar__label">Compact Converter</span>
+        </a>
+        <button type="button" class="stone-sidebar__link" data-sidebar-toggle aria-expanded="true">
+          <svg class="stone-icon icon-w-medium" viewBox="0 0 24 24" aria-hidden="true"><use href="#stone-i-sidebar"></use></svg>
+          <span class="stone-sidebar__label">Collapse Rail</span>
+        </button>
+      </div>
+    </aside>
+
+    <!-- Curved SidebarInset Main Content Sheet -->
+    <div class="stone-sidebar-inset">
+      <header class="stone-topbar">
+        <div class="stone-topbar__start">
+          <button
+            type="button"
+            class="stone-btn stone-btn--icon stone-mobile-only-btn"
+            data-variant="ghost"
+            data-size="sm"
+            data-drawer-open="stone-mobile-drawer"
+            aria-label="Open navigation menu"
+          >
+            <svg class="stone-icon icon-w-medium" viewBox="0 0 24 24" aria-hidden="true"><use href="#stone-i-menu"></use></svg>
+          </button>
+          <button
+            type="button"
+            class="stone-btn stone-btn--icon stone-desktop-only-btn"
+            data-variant="ghost"
+            data-size="sm"
+            data-sidebar-toggle
+            aria-label="Toggle navigation rail (Ctrl+B)"
+            aria-expanded="true"
+          >
+            <svg class="stone-icon icon-w-medium" viewBox="0 0 24 24" aria-hidden="true"><use href="#stone-i-sidebar"></use></svg>
+          </button>
+          <span class="stone-topbar__title">Stone Base Reference Catalog</span>
+        </div>
+
+        <div class="stone-topbar__end">
+          <button type="button" class="stone-cmdk-trigger" data-cmdk-open aria-label="Search commands or jump to section (Ctrl+K)">
+            <svg class="stone-icon icon-w-regular" viewBox="0 0 24 24" aria-hidden="true"><use href="#stone-i-search"></use></svg>
+            <span class="stone-cmdk-trigger__label">Jump to component&#8230;</span>
+            <kbd class="stone-kbd">Ctrl+K</kbd>
+          </button>
+
+          <button type="button" class="stone-btn" data-variant="ghost" data-size="sm" data-dir-toggle aria-label="Toggle LTR or RTL writing direction" aria-pressed="false">
+            <svg class="stone-icon icon-w-regular" viewBox="0 0 24 24" aria-hidden="true"><use href="#stone-i-arrow-left-right"></use></svg>
+            <span data-dir-label>LTR</span>
+          </button>
+
+          <button type="button" class="stone-btn stone-btn--icon" data-variant="ghost" data-size="sm" data-theme-toggle aria-label="Toggle Light or Dark mode" aria-pressed="false">
+            <span class="stone-swap" aria-hidden="true">
+              <svg class="stone-icon icon-w-medium" data-theme-icon="light" data-swap-state="off" viewBox="0 0 24 24"><use href="#stone-i-sun"></use></svg>
+              <svg class="stone-icon icon-w-medium" data-theme-icon="dark" data-swap-state="on" viewBox="0 0 24 24"><use href="#stone-i-moon"></use></svg>
+            </span>
+          </button>
+
+          <button type="button" class="stone-btn stone-btn--icon" data-variant="surface" data-size="sm" popovertarget="stone-settings-popover" aria-label="Open theme and appearance settings" aria-expanded="false">
+            <svg class="stone-icon icon-w-medium" viewBox="0 0 24 24" aria-hidden="true"><use href="#stone-i-settings"></use></svg>
+          </button>
+        </div>
+      </header>
+
+      <main id="main-content" class="stone-main" tabindex="-1">
+        <div class="stone-container stone-stack stone-stack--section" data-width="lg">
+
+          <!-- Hero Banner -->
+          <header class="docs-header-hero">
+            <div class="stone-cluster" style="gap: var(--space-2);">
+              <span class="stone-badge" data-tone="accent" data-shape="pill">Level-0 Ground System · v1.1.2</span>
+              <span class="stone-badge" data-shape="pill">Zero Build · OKLCH · WCAG 2.2 AA</span>
+              <span class="stone-badge" data-shape="pill">Ceramic Glass Chrome</span>
+            </div>
+            <h1 class="text-display">Stone Base Design System &amp; HTML Reference</h1>
+            <p class="text-body prose text-secondary">
+              One universal Chalk, Obsidian &amp; Electric Cobalt architecture spanning focused utilities, worker operations with analytics charts, studio reservations, and background job runners.
+            </p>
+            <div class="stone-cluster" style="padding-block-start: var(--space-2);">
+              <a href="#buttons" class="stone-btn stone-btn--icon-end stone-arrow-btn" data-variant="primary" data-shape="pill" data-arrow="forward">
+                <span>Inspect Button Reference</span>
+                <svg class="stone-icon icon-w-bold icon-directional stone-icon--arrow" viewBox="0 0 24 24" aria-hidden="true"><use href="#stone-i-arrow-right"></use></svg>
+              </a>
+              <a href="./examples/workspace-app.html" class="stone-btn stone-btn--icon-end stone-arrow-btn" data-variant="surface" data-arrow="external">
+                <span>Worker Ops + Charts</span>
+                <svg class="stone-icon icon-w-medium icon-directional stone-icon--arrow" viewBox="0 0 24 24" aria-hidden="true"><use href="#stone-i-arrow-up-right"></use></svg>
+              </a>
+              <a href="./examples/reservations.html" class="stone-btn stone-btn--icon-end stone-arrow-btn" data-variant="secondary" data-arrow="external">
+                <span>Reservations Demo</span>
+                <svg class="stone-icon icon-w-medium icon-directional stone-icon--arrow" viewBox="0 0 24 24" aria-hidden="true"><use href="#stone-i-arrow-up-right"></use></svg>
+              </a>
+              <a href="./examples/automation-runs.html" class="stone-btn stone-btn--icon-end stone-arrow-btn" data-variant="secondary" data-arrow="external">
+                <span>Automation Queue</span>
+                <svg class="stone-icon icon-w-medium icon-directional stone-icon--arrow" viewBox="0 0 24 24" aria-hidden="true"><use href="#stone-i-arrow-up-right"></use></svg>
+              </a>
+            </div>
+          </header>
+
+          <!-- Live Theme / Corner / Direction Playground Bar -->
+          <section class="stone-surface pad-md" aria-label="Live global system controls">
+            <div class="stone-row-baseline">
+              <div class="stone-stack stone-stack--tight">
+                <div class="text-heading">Interactive Environment Switcher</div>
+                <p class="text-caption">
+                  Theme: <strong data-theme-label>Light</strong> ·
+                  Shape: <strong data-corner-readout>Squircle (smooth)</strong> ·
+                  Quantized <code class="stone-code-inline">4px / 8px</code> scale
+                </p>
+              </div>
+              <div class="stone-cluster">
+                <div class="stone-segmented" role="group" aria-label="Corner profile">
+                  <button type="button" class="stone-segmented__btn" data-corner-choice="squircle" data-active="true" aria-pressed="true">Squircle</button>
+                  <button type="button" class="stone-segmented__btn" data-corner-choice="rounded" data-active="false" aria-pressed="false">Rounded</button>
+                </div>
+                <div class="stone-segmented" role="group" aria-label="Theme mode" data-segmented-theme>
+                  <button type="button" class="stone-segmented__btn" data-theme-value="system" aria-pressed="true">System</button>
+                  <button type="button" class="stone-segmented__btn" data-theme-value="light" aria-pressed="false">Light</button>
+                  <button type="button" class="stone-segmented__btn" data-theme-value="dark" aria-pressed="false">Dark</button>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Section 1: Quick Start & CSS Architecture -->
+          <section id="overview" class="docs-section" data-cmdk-section="Quick Start &amp; Architecture" data-cmdk-hint="Section 1">
+            <div class="docs-section__head">
+              <span class="text-overline">01 · Foundations</span>
+              <h2 class="text-title">Quick Start &amp; Two-Tier Token Contract</h2>
+              <p class="text-body-sm prose text-secondary">
+                Drop the modular stylesheets into any app head, initialize the anti-FOUC inline snippet before paint, and reference only Tier-2 <code class="stone-code-inline">--color-*</code> semantic tokens.
+              </p>
+            </div>
+
+            <div class="docs-grid-3">
+              <article class="stone-surface pad-md stone-stack stone-stack--tight">
+                <span class="text-overline">CSS Layer Order</span>
+                <h3 class="text-heading">Zero Specificity Drift</h3>
+                <p class="text-body-sm text-secondary">
+                  Declared explicitly via <code class="stone-code-inline">@layer reset, tokens, base, primitives, components, shells, patterns;</code> with <code class="stone-code-inline">@layer docs;</code> isolated in showcase CSS.
+                </p>
+              </article>
+              <article class="stone-surface pad-md stone-stack stone-stack--tight">
+                <span class="text-overline">Strict Isolation</span>
+                <h3 class="text-heading">Tier-2 Only Outside Tokens</h3>
+                <p class="text-body-sm text-secondary">
+                  Components consume semantic roles like <code class="stone-code-inline">--color-bg-surface</code> or <code class="stone-code-inline">--color-accent-solid</code>, never raw palette steps.
+                </p>
+              </article>
+              <article class="stone-surface pad-md stone-stack stone-stack--tight">
+                <span class="text-overline">Portable Delivery</span>
+                <h3 class="text-heading">Zero-Build &amp; file:// Ready</h3>
+                <p class="text-body-sm text-secondary">
+                  No bundlers required. Classic deferred scripts, relative routes, and inline SVG sprites run everywhere immediately.
+                </p>
+              </article>
+            </div>
+          </section>
+
+          <!-- Section 2: Color Palettes & Contrast Matrix -->
+          <section id="colors" class="docs-section" data-cmdk-section="Color Palettes &amp; Contrast" data-cmdk-hint="Section 2 · OKLCH">
+            <div class="docs-section__head">
+              <span class="text-overline">02 · Color Architecture</span>
+              <h2 class="text-title">Neutral Stone (Chalk / Obsidian 72°) &amp; Electric Cobalt (258°–260°) Palettes</h2>
+              <p class="text-body-sm prose text-secondary">
+                Every token is 100% inside the sRGB gamut and adapts automatically between Warm Chalk Light mode and Neutral Obsidian Dark mode. Click any swatch to copy its semantic CSS token.
+              </p>
+            </div>
+
+            <h3 class="text-heading">Neutral Stone Scale — Warm Chalk Light &amp; Obsidian Dark (Hue 72°)</h3>
+            <div class="docs-swatch-grid">
+              <button type="button" class="docs-swatch" data-copy-text="var(--color-bg-well)">
+                <span class="docs-swatch__chip" style="--swatch-color: var(--stone-well);">
+                  <span class="docs-swatch__step">well</span>
+                </span>
+                <span class="docs-swatch__meta">
+                  <span class="docs-swatch__token">--color-bg-well</span>
+                  <span class="docs-swatch__values">L 0.934 (#ebe9e6) · D 0.128 (#070706)</span>
+                </span>
+              </button>
+
+              <button type="button" class="docs-swatch" data-copy-text="var(--color-bg-canvas)">
+                <span class="docs-swatch__chip" style="--swatch-color: var(--stone-1);">
+                  <span class="docs-swatch__step">stone-1</span>
+                </span>
+                <span class="docs-swatch__meta">
+                  <span class="docs-swatch__token">--color-bg-canvas</span>
+                  <span class="docs-swatch__values">L 0.964 (#f4f3f1) · D 0.162 (#0e0e0d)</span>
+                </span>
+              </button>
+
+              <button type="button" class="docs-swatch" data-copy-text="var(--color-bg-surface)">
+                <span class="docs-swatch__chip" style="--swatch-color: var(--stone-surface);">
+                  <span class="docs-swatch__step">surface</span>
+                </span>
+                <span class="docs-swatch__meta">
+                  <span class="docs-swatch__token">--color-bg-surface</span>
+                  <span class="docs-swatch__values">L 0.986 (#fbfaf9) · D 0.198 (#161514)</span>
+                </span>
+              </button>
+
+              <button type="button" class="docs-swatch" data-copy-text="var(--color-bg-raised)">
+                <span class="docs-swatch__chip" style="--swatch-color: var(--stone-raised);">
+                  <span class="docs-swatch__step">raised</span>
+                </span>
+                <span class="docs-swatch__meta">
+                  <span class="docs-swatch__token">--color-bg-raised</span>
+                  <span class="docs-swatch__values">L 0.998 (#fffefe) · D 0.236 (#1f1e1d)</span>
+                </span>
+              </button>
+
+              <button type="button" class="docs-swatch" data-copy-text="var(--color-bg-skeleton)">
+                <span class="docs-swatch__chip" style="--swatch-color: var(--color-bg-skeleton);">
+                  <span class="docs-swatch__step">skeleton</span>
+                </span>
+                <span class="docs-swatch__meta">
+                  <span class="docs-swatch__token">--color-bg-skeleton</span>
+                  <span class="docs-swatch__values">L 0.892 (#dddbd8) · D 0.345 (#3a3937)</span>
+                </span>
+              </button>
+
+              <button type="button" class="docs-swatch" data-copy-text="var(--color-bg-control)">
+                <span class="docs-swatch__chip" style="--swatch-color: var(--stone-3);">
+                  <span class="docs-swatch__step">stone-3</span>
+                </span>
+                <span class="docs-swatch__meta">
+                  <span class="docs-swatch__token">--color-bg-control</span>
+                  <span class="docs-swatch__values">L 0.922 (#e5e3e2) · D 0.270 (#272625)</span>
+                </span>
+              </button>
+
+              <button type="button" class="docs-swatch" data-copy-text="var(--color-bg-control-hover)">
+                <span class="docs-swatch__chip" style="--swatch-color: var(--stone-4);">
+                  <span class="docs-swatch__step">stone-4</span>
+                </span>
+                <span class="docs-swatch__meta">
+                  <span class="docs-swatch__token">--color-bg-control-hover</span>
+                  <span class="docs-swatch__values">L 0.890 (#dcdad7) · D 0.312 (#32302e)</span>
+                </span>
+              </button>
+
+              <button type="button" class="docs-swatch" data-copy-text="var(--color-bg-control-active)">
+                <span class="docs-swatch__chip" style="--swatch-color: var(--stone-5);">
+                  <span class="docs-swatch__step">stone-5</span>
+                </span>
+                <span class="docs-swatch__meta">
+                  <span class="docs-swatch__token">--color-bg-control-active</span>
+                  <span class="docs-swatch__values">L 0.854 (#d1cecb) · D 0.348 (#3b3a38)</span>
+                </span>
+              </button>
+
+              <button type="button" class="docs-swatch" data-copy-text="var(--color-border-subtle)">
+                <span class="docs-swatch__chip" style="--swatch-color: var(--stone-6);">
+                  <span class="docs-swatch__step">stone-6</span>
+                </span>
+                <span class="docs-swatch__meta">
+                  <span class="docs-swatch__token">--color-border-subtle</span>
+                  <span class="docs-swatch__values">L 0.822 (#c7c5c2) · D 0.376 (#43413f)</span>
+                </span>
+              </button>
+
+              <button type="button" class="docs-swatch" data-copy-text="var(--color-border-default)">
+                <span class="docs-swatch__chip" style="--swatch-color: var(--stone-7);">
+                  <span class="docs-swatch__step">stone-7</span>
+                </span>
+                <span class="docs-swatch__meta">
+                  <span class="docs-swatch__token">--color-border-default</span>
+                  <span class="docs-swatch__values">L 0.546 (#72706c) · D 0.585 (#7e7c79)</span>
+                </span>
+              </button>
+
+              <button type="button" class="docs-swatch" data-copy-text="var(--color-border-control)">
+                <span class="docs-swatch__chip" style="--swatch-color: var(--color-border-control);">
+                  <span class="docs-swatch__step">ctrl</span>
+                </span>
+                <span class="docs-swatch__meta">
+                  <span class="docs-swatch__token">--color-border-control</span>
+                  <span class="docs-swatch__values">L 3.22:1 · D 3.34:1 (SC 1.4.11)</span>
+                </span>
+              </button>
+
+              <button type="button" class="docs-swatch" data-copy-text="var(--color-border-strong)">
+                <span class="docs-swatch__chip" style="--swatch-color: var(--stone-8);">
+                  <span class="docs-swatch__step">stone-8</span>
+                </span>
+                <span class="docs-swatch__meta">
+                  <span class="docs-swatch__token">--color-border-strong</span>
+                  <span class="docs-swatch__values">L 0.452 (#585552) · D 0.690 (#9d9b98)</span>
+                </span>
+              </button>
+
+              <button type="button" class="docs-swatch" data-copy-text="var(--color-ink-solid)">
+                <span class="docs-swatch__chip" style="--swatch-color: var(--stone-9);">
+                  <span class="docs-swatch__step">stone-9</span>
+                </span>
+                <span class="docs-swatch__meta">
+                  <span class="docs-swatch__token">--color-ink-solid</span>
+                  <span class="docs-swatch__values">L 0.188 (#141311) · D 0.952 (#f0efee)</span>
+                </span>
+              </button>
+
+              <button type="button" class="docs-swatch" data-copy-text="var(--color-ink-solid-hover)">
+                <span class="docs-swatch__chip" style="--swatch-color: var(--stone-10);">
+                  <span class="docs-swatch__step">stone-10</span>
+                </span>
+                <span class="docs-swatch__meta">
+                  <span class="docs-swatch__token">--color-ink-solid-hover</span>
+                  <span class="docs-swatch__values">L 0.135 (#090807) · D 0.990 (#fcfcfb)</span>
+                </span>
+              </button>
+
+              <button type="button" class="docs-swatch" data-copy-text="var(--color-text-secondary)">
+                <span class="docs-swatch__chip" style="--swatch-color: var(--stone-11);">
+                  <span class="docs-swatch__step">stone-11</span>
+                </span>
+                <span class="docs-swatch__meta">
+                  <span class="docs-swatch__token">--color-text-secondary</span>
+                  <span class="docs-swatch__values">L 0.422 (#504d4a) · D 0.848 (#cfcdca)</span>
+                </span>
+              </button>
+
+              <button type="button" class="docs-swatch" data-copy-text="var(--color-text-primary)">
+                <span class="docs-swatch__chip" style="--swatch-color: var(--stone-12);">
+                  <span class="docs-swatch__step">stone-12</span>
+                </span>
+                <span class="docs-swatch__meta">
+                  <span class="docs-swatch__token">--color-text-primary</span>
+                  <span class="docs-swatch__values">L 0.175 (#12100f) · D 0.942 (#edebea)</span>
+                </span>
+              </button>
+
+              <button type="button" class="docs-swatch" data-copy-text="var(--color-text-disabled)">
+                <span class="docs-swatch__chip" style="--swatch-color: var(--stone-disabled);">
+                  <span class="docs-swatch__step">disabled</span>
+                </span>
+                <span class="docs-swatch__meta">
+                  <span class="docs-swatch__token">--color-text-disabled</span>
+                  <span class="docs-swatch__values">L 0.625 · D 0.505</span>
+                </span>
+              </button>
+            </div>
+
+            <h3 class="text-heading">Electric Cobalt Accent (258°–260°) &amp; Functional Status</h3>
+            <div class="docs-swatch-grid">
+              <button type="button" class="docs-swatch" data-copy-text="var(--color-accent-subtle)">
+                <span class="docs-swatch__chip" style="--swatch-color: var(--accent-2);"><span class="docs-swatch__step">accent-2</span></span>
+                <span class="docs-swatch__meta">
+                  <span class="docs-swatch__token">--color-accent-subtle</span>
+                  <span class="docs-swatch__values">L #e3edfd · D #0f1d31</span>
+                </span>
+              </button>
+              <button type="button" class="docs-swatch" data-copy-text="var(--color-accent-selected)">
+                <span class="docs-swatch__chip" style="--swatch-color: var(--accent-3);"><span class="docs-swatch__step">accent-3</span></span>
+                <span class="docs-swatch__meta">
+                  <span class="docs-swatch__token">--color-accent-selected</span>
+                  <span class="docs-swatch__values">L #cde0fc · D #122747</span>
+                </span>
+              </button>
+              <button type="button" class="docs-swatch" data-copy-text="var(--color-accent-hover)">
+                <span class="docs-swatch__chip" style="--swatch-color: var(--accent-4);"><span class="docs-swatch__step">accent-4</span></span>
+                <span class="docs-swatch__meta">
+                  <span class="docs-swatch__token">--color-accent-hover</span>
+                  <span class="docs-swatch__values">L #b5d1fc · D #16325c</span>
+                </span>
+              </button>
+              <button type="button" class="docs-swatch" data-copy-text="var(--color-accent-border)">
+                <span class="docs-swatch__chip" style="--swatch-color: var(--accent-7);"><span class="docs-swatch__step">accent-7</span></span>
+                <span class="docs-swatch__meta">
+                  <span class="docs-swatch__token">--color-accent-border</span>
+                  <span class="docs-swatch__values">L #518be6 · D #2a69c3</span>
+                </span>
+              </button>
+              <button type="button" class="docs-swatch" data-copy-text="var(--color-border-focus)">
+                <span class="docs-swatch__chip" style="--swatch-color: var(--accent-8);"><span class="docs-swatch__step">accent-8</span></span>
+                <span class="docs-swatch__meta">
+                  <span class="docs-swatch__token">--color-border-focus</span>
+                  <span class="docs-swatch__values">L #1762d8 · D #438ceb</span>
+                </span>
+              </button>
+              <button type="button" class="docs-swatch" data-copy-text="var(--color-accent-solid)">
+                <span class="docs-swatch__chip" style="--swatch-color: var(--accent-9);"><span class="docs-swatch__step">accent-9</span></span>
+                <span class="docs-swatch__meta">
+                  <span class="docs-swatch__token">--color-accent-solid</span>
+                  <span class="docs-swatch__values">L #0f5ed6 (5.83:1) · D #0c59cc (6.35:1)</span>
+                </span>
+              </button>
+              <button type="button" class="docs-swatch" data-copy-text="var(--color-accent-solid-hover)">
+                <span class="docs-swatch__chip" style="--swatch-color: var(--accent-10);"><span class="docs-swatch__step">accent-10</span></span>
+                <span class="docs-swatch__meta">
+                  <span class="docs-swatch__token">--color-accent-solid-hover</span>
+                  <span class="docs-swatch__values">L #0a50b9 (7.37:1) · D #1163df (5.43:1)</span>
+                </span>
+              </button>
+              <button type="button" class="docs-swatch" data-copy-text="var(--color-accent-text)">
+                <span class="docs-swatch__chip" style="--swatch-color: var(--accent-11);"><span class="docs-swatch__step">accent-11</span></span>
+                <span class="docs-swatch__meta">
+                  <span class="docs-swatch__token">--color-accent-text</span>
+                  <span class="docs-swatch__values">L #0844a0 · D #a9d0fc</span>
+                </span>
+              </button>
+              <button type="button" class="docs-swatch" data-copy-text="var(--color-accent-text-strong)">
+                <span class="docs-swatch__chip" style="--swatch-color: var(--accent-12);"><span class="docs-swatch__step">accent-12</span></span>
+                <span class="docs-swatch__meta">
+                  <span class="docs-swatch__token">--color-accent-text-strong</span>
+                  <span class="docs-swatch__values">L #062b66 · D #cbe2fd</span>
+                </span>
+              </button>
+              <button type="button" class="docs-swatch" data-copy-text="var(--color-danger-solid)">
+                <span class="docs-swatch__chip" style="--swatch-color: var(--color-danger-solid);"><span class="docs-swatch__step">danger</span></span>
+                <span class="docs-swatch__meta">
+                  <span class="docs-swatch__token">--color-danger-solid</span>
+                  <span class="docs-swatch__values">Crimson 26° (L 5.30:1 · D 6.24:1)</span>
+                </span>
+              </button>
+              <button type="button" class="docs-swatch" data-copy-text="var(--color-danger-solid-hover)">
+                <span class="docs-swatch__chip" style="--swatch-color: var(--color-danger-solid-hover);"><span class="docs-swatch__step">danger-h</span></span>
+                <span class="docs-swatch__meta">
+                  <span class="docs-swatch__token">--color-danger-solid-hover</span>
+                  <span class="docs-swatch__values">Hover (L 6.85:1 · D 5.45:1)</span>
+                </span>
+              </button>
+              <button type="button" class="docs-swatch" data-copy-text="var(--color-danger-subtle)">
+                <span class="docs-swatch__chip" style="--swatch-color: var(--color-danger-subtle);"><span class="docs-swatch__step">danger-s</span></span>
+                <span class="docs-swatch__meta">
+                  <span class="docs-swatch__token">--color-danger-subtle</span>
+                  <span class="docs-swatch__values">Subtle tinted container</span>
+                </span>
+              </button>
+              <button type="button" class="docs-swatch" data-copy-text="var(--color-warning-solid)">
+                <span class="docs-swatch__chip" style="--swatch-color: var(--color-warning-solid);"><span class="docs-swatch__step">warning</span></span>
+                <span class="docs-swatch__meta">
+                  <span class="docs-swatch__token">--color-warning-solid</span>
+                  <span class="docs-swatch__values">Amber 78°/74° dark ink</span>
+                </span>
+              </button>
+              <button type="button" class="docs-swatch" data-copy-text="var(--color-success-solid)">
+                <span class="docs-swatch__chip" style="--swatch-color: var(--color-success-solid);"><span class="docs-swatch__step">success</span></span>
+                <span class="docs-swatch__meta">
+                  <span class="docs-swatch__token">--color-success-solid</span>
+                  <span class="docs-swatch__values">Emerald 158° (L 5.32:1 · D 5.98:1)</span>
+                </span>
+              </button>
+              <button type="button" class="docs-swatch" data-copy-text="var(--color-success-solid-hover)">
+                <span class="docs-swatch__chip" style="--swatch-color: var(--color-success-solid-hover);"><span class="docs-swatch__step">success-h</span></span>
+                <span class="docs-swatch__meta">
+                  <span class="docs-swatch__token">--color-success-solid-hover</span>
+                  <span class="docs-swatch__values">Hover (L 6.92:1 · D 5.25:1)</span>
+                </span>
+              </button>
+            </div>
+
+            <h3 class="text-heading">6-Series Analytics Palette (<code class="stone-code-inline">100%</code> sRGB, Non-Colliding Interstitial Hues)</h3>
+            <div class="docs-swatch-grid">
+              <button type="button" class="docs-swatch" data-copy-text="var(--color-chart-1)">
+                <span class="docs-swatch__chip" style="--swatch-color: var(--color-chart-1);"><span class="docs-swatch__step">chart-1</span></span>
+                <span class="docs-swatch__meta">
+                  <span class="docs-swatch__token">--color-chart-1</span>
+                  <span class="docs-swatch__values">Cerulean (L #11739d 5.07:1 · D #38a6ca 6.50:1)</span>
+                </span>
+              </button>
+              <button type="button" class="docs-swatch" data-copy-text="var(--color-chart-2)">
+                <span class="docs-swatch__chip" style="--swatch-color: var(--color-chart-2);"><span class="docs-swatch__step">chart-2</span></span>
+                <span class="docs-swatch__meta">
+                  <span class="docs-swatch__token">--color-chart-2</span>
+                  <span class="docs-swatch__values">Teal (L #1e8a85 4.01:1 · D #42cac3 9.05:1)</span>
+                </span>
+              </button>
+              <button type="button" class="docs-swatch" data-copy-text="var(--color-chart-3)">
+                <span class="docs-swatch__chip" style="--swatch-color: var(--color-chart-3);"><span class="docs-swatch__step">chart-3</span></span>
+                <span class="docs-swatch__meta">
+                  <span class="docs-swatch__token">--color-chart-3</span>
+                  <span class="docs-swatch__values">Plum (L #6d46b3 6.34:1 · D #9d7de7 5.64:1)</span>
+                </span>
+              </button>
+              <button type="button" class="docs-swatch" data-copy-text="var(--color-chart-4)">
+                <span class="docs-swatch__chip" style="--swatch-color: var(--color-chart-4);"><span class="docs-swatch__step">chart-4</span></span>
+                <span class="docs-swatch__meta">
+                  <span class="docs-swatch__token">--color-chart-4</span>
+                  <span class="docs-swatch__values">Berry (L #b44591 4.80:1 · D #ed86c4 7.64:1)</span>
+                </span>
+              </button>
+              <button type="button" class="docs-swatch" data-copy-text="var(--color-chart-5)">
+                <span class="docs-swatch__chip" style="--swatch-color: var(--color-chart-5);"><span class="docs-swatch__step">chart-5</span></span>
+                <span class="docs-swatch__meta">
+                  <span class="docs-swatch__token">--color-chart-5</span>
+                  <span class="docs-swatch__values">Ochre (L #aa5016 5.24:1 · D #ea8d52 7.30:1)</span>
+                </span>
+              </button>
+              <button type="button" class="docs-swatch" data-copy-text="var(--color-chart-6)">
+                <span class="docs-swatch__chip" style="--swatch-color: var(--color-chart-6);"><span class="docs-swatch__step">chart-6</span></span>
+                <span class="docs-swatch__meta">
+                  <span class="docs-swatch__token">--color-chart-6</span>
+                  <span class="docs-swatch__values">Moss (L #657f2f 4.33:1 · D #a7c76a 9.53:1)</span>
+                </span>
+              </button>
+            </div>
+
+            <!-- Contrast Verification Matrix -->
+            <div class="stone-surface">
+              <div class="stone-row-baseline pad-md" style="padding-block-end: var(--space-3);">
+                <h3 class="text-heading">WCAG 2.2 AA &amp; UI Margin Contrast Matrix (v1.1.2)</h3>
+                <span class="stone-badge" data-tone="success">100% Verified Pairs</span>
+              </div>
+              <div class="stone-inset stone-inset--bottom stone-table-wrap">
+                <table class="stone-table">
+                  <caption class="visually-hidden">Stone Base v1.1.2 light and dark contrast ratios</caption>
+                  <thead>
+                    <tr>
+                      <th scope="col">Foreground / Background Pair</th>
+                      <th scope="col">Role</th>
+                      <th scope="col" class="is-numeric">Light WCAG</th>
+                      <th scope="col" class="is-numeric">Dark WCAG</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code class="stone-code-inline">--color-text-primary</code> on Surface</td>
+                      <td>Primary Copy (&#8805; 4.5:1)</td>
+                      <td class="is-numeric tabular-nums">18.22:1</td>
+                      <td class="is-numeric tabular-nums">15.34:1</td>
+                    </tr>
+                    <tr>
+                      <td><code class="stone-code-inline">--color-text-secondary</code> on Well / Surface</td>
+                      <td>Captions &amp; Secondary (&#8805; 4.5:1)</td>
+                      <td class="is-numeric tabular-nums">6.91:1 / 8.06:1</td>
+                      <td class="is-numeric tabular-nums">12.66:1 / 11.42:1</td>
+                    </tr>
+                    <tr>
+                      <td><code class="stone-code-inline">--color-text-placeholder</code> on Raised</td>
+                      <td>Form Placeholders (&#8805; 4.5:1)</td>
+                      <td class="is-numeric tabular-nums">8.35:1</td>
+                      <td class="is-numeric tabular-nums">10.45:1</td>
+                    </tr>
+                    <tr>
+                      <td><code class="stone-code-inline">--color-text-on-accent</code> on Primary Rest / Hover / Active</td>
+                      <td>Primary CTA (Dark Hover &#8805; 5.2:1)</td>
+                      <td class="is-numeric tabular-nums">5.83 / 7.37 / 8.90:1</td>
+                      <td class="is-numeric tabular-nums">6.35 / 5.43 / 7.62:1</td>
+                    </tr>
+                    <tr>
+                      <td><code class="stone-code-inline">--color-danger-on-solid</code> on Danger Rest / Hover / Active</td>
+                      <td>Destructive &amp; Hold CTA</td>
+                      <td class="is-numeric tabular-nums">5.30 / 6.85 / 8.41:1</td>
+                      <td class="is-numeric tabular-nums">6.24 / 5.45 / 7.44:1</td>
+                    </tr>
+                    <tr>
+                      <td><code class="stone-code-inline">--color-success-on-solid</code> on Success Rest / Hover</td>
+                      <td>Emerald Accent Token</td>
+                      <td class="is-numeric tabular-nums">5.32:1 / 6.92:1</td>
+                      <td class="is-numeric tabular-nums">5.98:1 / 5.25:1</td>
+                    </tr>
+                    <tr>
+                      <td><code class="stone-code-inline">--color-border-control</code> on Surface / Raised</td>
+                      <td>Input &amp; Checkbox Edge (SC 1.4.11 &#8805; 3.0:1)</td>
+                      <td class="is-numeric tabular-nums">3.22:1</td>
+                      <td class="is-numeric tabular-nums">3.32:1</td>
+                    </tr>
+                    <tr>
+                      <td><code class="stone-code-inline">--color-border-focus</code> on Surface</td>
+                      <td>2px Focus Ring (SC 1.4.11)</td>
+                      <td class="is-numeric tabular-nums">5.36:1</td>
+                      <td class="is-numeric tabular-nums">5.36:1</td>
+                    </tr>
+                    <tr>
+                      <td><code class="stone-code-inline">--color-chart-1..6</code> on Surface</td>
+                      <td>6 Analytics Series (&#8805; 3.0:1)</td>
+                      <td class="is-numeric tabular-nums">4.01:1 – 6.34:1</td>
+                      <td class="is-numeric tabular-nums">5.64:1 – 9.53:1</td>
+                    </tr>
+                    <tr>
+                      <td>Primary / Secondary over <code class="stone-code-inline">0.94</code> Ceramic Chrome</td>
+                      <td>Topbar / Dock / Toast Glass</td>
+                      <td class="is-numeric tabular-nums">7.85:1 / 5.62:1</td>
+                      <td class="is-numeric tabular-nums">&#8805; 9.10:1</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </section>
+
+          <!-- Section 3: Typography Scale & Hierarchy -->
+          <section id="typography" class="docs-section" data-cmdk-section="Typography Scale &amp; Hierarchy" data-cmdk-hint="Section 3 · rem Scale">
+            <div class="docs-section__head">
+              <span class="text-overline">03 · Typography</span>
+              <h2 class="text-title">7 Typographic Roles, Weight Restraint &amp; Tabular Figures</h2>
+              <p class="text-body-sm prose text-secondary">
+                Hierarchy relies on deliberate scale steps, negative tracking on titles, and muted stone ink before shouting with ultra-heavy font weights (<code class="stone-code-inline">400 / 500 / 600</code> only).
+              </p>
+            </div>
+
+            <div class="stone-surface pad-none" data-specimen data-specimen-note="Stone Base 7-role type scale">
+              <div data-specimen-source>
+                <div class="docs-type-row">
+                  <div>
+                    <div class="text-overline">.text-display</div>
+                    <div class="text-caption text-mono">26–36px · 600 · -0.02em</div>
+                  </div>
+                  <p class="text-display">Stone Base Systems Architecture</p>
+                </div>
+                <div class="docs-type-row">
+                  <div>
+                    <div class="text-overline">.text-title</div>
+                    <div class="text-caption text-mono">20–24px · 600 · -0.015em</div>
+                  </div>
+                  <h3 class="text-title">Quiet Structural Precision Across Apps</h3>
+                </div>
+                <div class="docs-type-row">
+                  <div>
+                    <div class="text-overline">.text-heading</div>
+                    <div class="text-caption text-mono">18px · 600 · -0.01em</div>
+                  </div>
+                  <h4 class="text-heading">Surface Cards, Navigation &amp; Split Toolbar</h4>
+                </div>
+                <div class="docs-type-row">
+                  <div>
+                    <div class="text-overline">.text-body</div>
+                    <div class="text-caption text-mono">16px · 400 · 1.50 leading</div>
+                  </div>
+                  <p class="text-body prose">
+                    Long-form prose is constrained to <code class="stone-code-inline">65ch</code> max line length with balanced wrapping to keep multi-line explanations calm and scannable.
+                  </p>
+                </div>
+                <div class="docs-type-row">
+                  <div>
+                    <div class="text-overline">.text-body-sm</div>
+                    <div class="text-caption text-mono">14px · 400 · 1.45 leading</div>
+                  </div>
+                  <p class="text-body-sm">Controls, menu lists, table cells, sidebar links, and compact workspaces.</p>
+                </div>
+                <div class="docs-type-row">
+                  <div>
+                    <div class="text-overline">.text-caption</div>
+                    <div class="text-caption text-mono">13px · 400 · 1.40 leading</div>
+                  </div>
+                  <p class="text-caption">Form hints, helper timestamps, and non-blocking metadata readouts.</p>
+                </div>
+                <div class="docs-type-row">
+                  <div>
+                    <div class="text-overline">.text-overline</div>
+                    <div class="text-caption text-mono">12px · 500 · +0.05em</div>
+                  </div>
+                  <p class="text-overline">SIDEBAR GROUP HEADERS · UPPERCASE SECTION MARKERS</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="stone-surface pad-md stone-row-baseline">
+              <div class="stone-stack stone-stack--tight">
+                <span class="text-overline">Tabular Numeric Alignment</span>
+                <div class="text-title text-mono tabular-nums" id="demo-ticker-value">12,840.25</div>
+                <p class="text-caption">Pausable live ticker demonstrating zero horizontal digit jitter (<code class="stone-code-inline">tabular-nums</code>).</p>
+              </div>
+              <button type="button" id="demo-ticker-toggle" class="stone-btn stone-btn--icon-start" data-variant="secondary" aria-pressed="false">
+                <svg class="stone-icon icon-w-medium icon-play" viewBox="0 0 24 24" aria-hidden="true"><use href="#stone-i-play"></use></svg>
+                <span data-ticker-label>Start numeric ticker</span>
+              </button>
+            </div>
+          </section>
+
+          <!-- Section 4: 6 Closed Box Primitives & Concentric Radii -->
+          <section id="boxes" class="docs-section" data-cmdk-section="Boxes, Surfaces &amp; Radii" data-cmdk-hint="Section 4 · Depth Model">
+            <div class="docs-section__head">
+              <span class="text-overline">04 · Spatial Hierarchy</span>
+              <h2 class="text-title">6 Box Primitives, Container Widths &amp; Concentric Radii</h2>
+              <p class="text-body-sm prose text-secondary">
+                Ad hoc divs with random borders are forbidden. Every box selects one of 6 elevation primitives and nests inner radii cleanly via <code class="stone-code-inline">max(4px, r_outer - pad - 1px)</code>.
+              </p>
+            </div>
+
+            <div class="docs-grid-3" data-specimen data-specimen-note="Closed 6-level Stone Base box primitives">
+              <div data-specimen-source class="docs-grid-3" style="grid-column: 1 / -1;">
+                <div class="stone-well pad-md stone-stack stone-stack--tight">
+                  <span class="text-overline">Level -1 · .stone-well</span>
+                  <h3 class="text-heading">Recessed Well</h3>
+                  <p class="text-caption">Code panels, sidebar rail, table headers, input wells, inset dropzones.</p>
+                </div>
+
+                <div class="stone-canvas pad-md stone-stack stone-stack--tight" style="border: 1px dashed var(--color-border-subtle); border-radius: var(--radius-md);">
+                  <span class="text-overline">Level 0 · .stone-canvas</span>
+                  <h3 class="text-heading">Application Ground</h3>
+                  <p class="text-caption">Ambient warm stone page background with zero shadow or elevation.</p>
+                </div>
+
+                <div class="stone-surface pad-md stone-stack stone-stack--tight">
+                  <span class="text-overline">Level 1 · .stone-surface</span>
+                  <h3 class="text-heading">Primary Surface</h3>
+                  <p class="text-caption">Crisp 1px edge + hairline <code class="stone-code-inline">--shadow-1</code> for structured panels.</p>
+                </div>
+
+                <div class="stone-raised is-interactive pad-md stone-stack stone-stack--tight">
+                  <span class="text-overline">Level 1.5 · .stone-raised</span>
+                  <h3 class="text-heading">Selectable Raised Tile</h3>
+                  <p class="text-caption">Interactive hover step from <code class="stone-code-inline">--shadow-2</code> to <code class="stone-code-inline">--shadow-3</code>.</p>
+                </div>
+
+                <div class="stone-overlay stone-overlay--glass pad-md stone-stack stone-stack--tight">
+                  <span class="text-overline">Level 2 · .stone-overlay</span>
+                  <h3 class="text-heading">Floating Glass Overlay</h3>
+                  <p class="text-caption">Popovers &amp; dropdowns using <code class="stone-code-inline">--shadow-3</code> + reduced-transparency fallback.</p>
+                </div>
+
+                <div class="stone-modal pad-md stone-stack stone-stack--tight">
+                  <span class="text-overline">Level 3 · .stone-modal</span>
+                  <h3 class="text-heading">Blocking Modal Shell</h3>
+                  <p class="text-caption">High-focus <code class="stone-code-inline">--radius-xl</code> (<code class="stone-code-inline">16px</code>) and <code class="stone-code-inline">--shadow-5</code>.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Interactive Concentric Radius Playground & Container Width Bars -->
+            <div class="docs-grid-2">
+              <div class="stone-surface pad-md stone-stack">
+                <div class="stone-row-baseline">
+                  <h3 class="text-heading">Concentric Nested Radius Playground</h3>
+                  <span class="stone-badge">Live Formula</span>
+                </div>
+                <div class="stone-cluster">
+                  <div class="stone-field" style="flex: 1 1 8rem;">
+                    <label class="stone-label" for="concentric-outer">Outer Radius</label>
+                    <select id="concentric-outer" class="stone-select">
+                      <option value="8">8px (--radius-md)</option>
+                      <option value="12" selected>12px (--radius-lg)</option>
+                      <option value="16">16px (--radius-xl)</option>
+                      <option value="24">24px (Custom Hero)</option>
+                    </select>
+                  </div>
+                  <div class="stone-field" style="flex: 1 1 8rem;">
+                    <label class="stone-label" for="concentric-pad">Box Padding</label>
+                    <select id="concentric-pad" class="stone-select">
+                      <option value="4">4px (--space-1)</option>
+                      <option value="8">8px (--box-pad-xs)</option>
+                      <option value="12" selected>12px (--box-pad-sm)</option>
+                      <option value="16">16px (--box-pad-md)</option>
+                    </select>
+                  </div>
+                </div>
+                <div id="concentric-preview-outer" class="docs-concentric-outer">
+                  <div id="concentric-preview-inner" class="docs-concentric-inner">
+                    <div class="text-body-sm text-semibold">Nested Inner Well</div>
+                    <p id="concentric-formula" class="text-caption text-mono">max(4px, 12px - 12px - 1px border) = 4px</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="stone-surface pad-md stone-stack">
+                <h3 class="text-heading">4 Standardized Container Max-Widths</h3>
+                <div class="stone-stack stone-stack--tight">
+                  <div class="docs-width-bar" style="inline-size: 40%;"><span>sm</span><span>448px</span></div>
+                  <div class="docs-width-bar" style="inline-size: 62%;"><span>md</span><span>688px</span></div>
+                  <div class="docs-width-bar" style="inline-size: 80%;"><span>lg</span><span>880px</span></div>
+                  <div class="docs-width-bar" style="inline-size: 100%;"><span>xl</span><span>1136px</span></div>
+                </div>
+                <p class="text-caption">Plus <code class="stone-code-inline">.stone-inset</code> bleeds child media or tables flush to the card border.</p>
+              </div>
+            </div>
+
+            <!-- v1.1.2 Shape Tracks, Edge Materiality & Skeleton States -->
+            <div class="stone-surface pad-md stone-stack">
+              <div class="stone-row-baseline">
+                <div class="stone-stack stone-stack--tight">
+                  <h3 class="text-heading">v1.1.2 Functional Shape Tracks &amp; Squircle Geometry</h3>
+                  <p class="text-caption" data-corner-support>Evaluating native CSS corner-shape support&#8230;</p>
+                </div>
+                <span class="stone-badge" data-tone="accent" data-shape="pill">4 Shape Tracks</span>
+              </div>
+
+              <div class="docs-shape-showcase">
+                <div class="docs-shape-sample">
+                  <div class="docs-shape-sample__tile" data-tile="squircle">corner-shape: squircle</div>
+                  <div class="text-body-sm text-semibold">Track A · Sheets &amp; Cards</div>
+                  <p class="text-caption">Uses <code class="stone-code-inline">--radius-lg</code> / <code class="stone-code-inline">--radius-xl</code> with progressive superellipse curvature.</p>
+                </div>
+                <div class="docs-shape-sample">
+                  <div class="docs-shape-sample__tile" data-tile="control">radius-xs · 4px</div>
+                  <div class="text-body-sm text-semibold">Track B · Micro Controls &amp; Checkboxes</div>
+                  <p class="text-caption">Keeps checkboxes, keycaps, and small inner wells crisp at <code class="stone-code-inline">4px</code> (<code class="stone-code-inline">--radius-xs</code>).</p>
+                </div>
+                <div class="docs-shape-sample">
+                  <div class="docs-shape-sample__tile" data-tile="control">radius-sm · 6px</div>
+                  <div class="text-body-sm text-semibold">Track C · Inputs &amp; Buttons</div>
+                  <p class="text-caption">Standard interactive buttons, inputs, and time slots use <code class="stone-code-inline">6px</code> (<code class="stone-code-inline">--radius-sm</code>).</p>
+                </div>
+                <div class="docs-shape-sample">
+                  <div class="docs-shape-sample__tile" data-tile="pill">radius-full · 9999px</div>
+                  <div class="text-body-sm text-semibold">Track D · Pills &amp; Floating Docks</div>
+                  <p class="text-caption">Reserved for hero CTAs, status pills, filter chips, and centered ceramic docks.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="docs-grid-2">
+              <div class="stone-surface pad-md stone-stack">
+                <h3 class="text-heading">Dual-Tier Edge Discipline &amp; Specular Bevel</h3>
+                <p class="text-caption">
+                  Decorative cards pair a whisper-quiet hairline edge (<code class="stone-code-inline">--color-border-hairline</code>) with a top inner bevel (<code class="stone-code-inline">--shadow-bevel-surface</code>), framed controls use <code class="stone-code-inline">--color-border-control</code>, and interactive inputs enforce <code class="stone-code-inline">&gt;= 3.8:1</code> (<code class="stone-code-inline">--color-border-default</code>).
+                </p>
+                <div class="stone-well pad-sm stone-stack stone-stack--tight" data-concentric="true">
+                  <div class="stone-row-baseline">
+                    <span class="text-body-sm text-semibold">Surface Hairline Edge</span>
+                    <span class="stone-badge" data-shape="pill">~8–9% neutral</span>
+                  </div>
+                  <div class="stone-row-baseline">
+                    <span class="text-body-sm text-semibold">Input / Control Edge</span>
+                    <span class="stone-badge" data-tone="success" data-shape="pill">&gt;= 3.8:1 SC 1.4.11</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="stone-surface pad-md stone-stack">
+                <div class="stone-row-baseline">
+                  <h3 class="text-heading">Async Skeleton Placeholders</h3>
+                  <code class="stone-code-inline">.stone-skeleton</code>
+                </div>
+                <p class="text-caption">Quiet warm-stone placeholders obey <code class="stone-code-inline">prefers-reduced-motion</code> automatically.</p>
+                <div class="stone-stack stone-stack--tight" aria-hidden="true">
+                  <div class="stone-skeleton" style="block-size: 1rem; inline-size: 45%;"></div>
+                  <div class="stone-skeleton" style="block-size: 0.875rem; inline-size: 92%;"></div>
+                  <div class="stone-skeleton" style="block-size: 0.875rem; inline-size: 74%;"></div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Section 5: Complete Buttons Family -->
+          <section id="buttons" class="docs-section" data-cmdk-section="Buttons &amp; Actions" data-cmdk-hint="Section 5 · 7 Core Variants">
+            <div class="docs-section__head">
+              <span class="text-overline">05 · Actions &amp; Feedback</span>
+              <h2 class="text-title">Core Button Matrix, States &amp; Deliberate Safety Controls</h2>
+              <p class="text-body-sm prose text-secondary">
+                Core buttons standardize 7 calibrated variants (<code class="stone-code-inline">primary</code>, <code class="stone-code-inline">ink</code>, <code class="stone-code-inline">secondary</code>, <code class="stone-code-inline">surface</code>, <code class="stone-code-inline">ghost</code>, <code class="stone-code-inline">danger</code>, <code class="stone-code-inline">danger-subtle</code>) with <code class="stone-code-inline">40px</code> desktop (<code class="stone-code-inline">44px</code> touch) targets, Dark hover <code class="stone-code-inline">&#8805; 5.2:1</code> headroom, and RTL-safe typography alignment.
+              </p>
+            </div>
+
+            <div class="stone-surface pad-md stone-stack" data-specimen data-specimen-note="Stone Base v1.1.2 core button variants (optional legacy roles live in stone-compat-v1_1.css)">
+              <div class="stone-row-baseline">
+                <h3 class="text-heading">1. Semantic Hierarchy &amp; Destructive Variants</h3>
+                <span class="stone-badge" data-tone="accent" data-shape="pill">Hover Light Deepens · Dark &#8805; 5.2:1</span>
+              </div>
+              <div class="stone-cluster" data-specimen-source>
+                <button type="button" class="stone-btn" data-variant="primary">Primary Action</button>
+                <button type="button" class="stone-btn" data-variant="ink">Ink Minimal CTA</button>
+                <button type="button" class="stone-btn" data-variant="secondary">Secondary</button>
+                <button type="button" class="stone-btn" data-variant="surface">Surface Framed</button>
+                <button type="button" class="stone-btn" data-variant="ghost">Ghost</button>
+                <button type="button" class="stone-btn" data-variant="danger">Danger Solid</button>
+                <button type="button" class="stone-btn" data-variant="danger-subtle">Danger Subtle</button>
+              </div>
+            </div>
+
+            <div class="docs-grid-2">
+              <div class="stone-surface pad-md stone-stack" data-specimen data-specimen-note="Button size scale &amp; icon-only square buttons">
+                <h3 class="text-heading">2. Sizes &amp; Touch Hit Floor</h3>
+                <div class="stone-cluster" data-specimen-source>
+                  <button type="button" class="stone-btn" data-variant="secondary" data-size="xs">XS Action</button>
+                  <button type="button" class="stone-btn" data-variant="secondary" data-size="sm">SM Action</button>
+                  <button type="button" class="stone-btn" data-variant="secondary">Default MD</button>
+                  <button type="button" class="stone-btn" data-variant="primary" data-size="lg">Large LG</button>
+                  <button type="button" class="stone-btn stone-btn--icon" data-variant="surface" data-size="sm" aria-label="Filter view">
+                    <svg class="stone-icon icon-w-medium" viewBox="0 0 24 24" aria-hidden="true"><use href="#stone-i-filter"></use></svg>
+                  </button>
+                  <button type="button" class="stone-btn stone-btn--icon" data-variant="surface" aria-label="Download specification">
+                    <svg class="stone-icon icon-w-medium" viewBox="0 0 24 24" aria-hidden="true"><use href="#stone-i-download"></use></svg>
+                  </button>
+                </div>
+                <p class="text-caption">Standalone buttons stay accessible at <code class="stone-code-inline">44px</code> height under <code class="stone-code-inline">@media (pointer: coarse), (max-width: 30rem)</code> without colliding inside adjacent button groups or table cells.</p>
+              </div>
+
+              <div class="stone-surface pad-md stone-stack" data-specimen data-specimen-note="Toggle, Static, Hold-to-Confirm, Copy &amp; Disabled buttons">
+                <h3 class="text-heading">3. Stateful, Static, Hold-to-Confirm &amp; Copy Controls</h3>
+                <div class="stone-cluster" data-specimen-source>
+                  <button type="button" class="stone-btn" data-variant="surface" data-toggle-emphasis="accent" aria-pressed="false">Pin Panel</button>
+                  <button type="button" class="stone-btn" data-variant="secondary" data-static="true">Static (No Scale)</button>
+                  <button
+                    type="button"
+                    class="stone-btn stone-hold-btn"
+                    data-variant="danger"
+                    data-hold-confirm="archive-demo"
+                  >
+                    <span class="stone-hold-btn__progress" aria-hidden="true"></span>
+                    <span class="stone-hold-btn__label">Hold to Archive</span>
+                  </button>
+                  <button type="button" class="stone-btn stone-btn--icon-start" data-variant="surface" data-copy-text="@import './css/stone-tokens.css';">
+                    <svg class="stone-icon icon-w-regular" viewBox="0 0 24 24" aria-hidden="true"><use href="#stone-i-copy"></use></svg>
+                    <span>Copy Import</span>
+                  </button>
+                  <button type="button" class="stone-btn" data-variant="primary" disabled>Disabled</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="stone-surface pad-md stone-stack" data-specimen data-specimen-note="v1.1.2 Capsule CTAs, inline kbd keycap, loading feedback, and fused button group">
+              <div class="stone-row-baseline">
+                <h3 class="text-heading">4. v1.1.2 Capsule CTAs, Keycaps, Loading &amp; Fused Groups</h3>
+                <span class="stone-badge" data-tone="accent" data-shape="pill">v1.1.2 Materiality</span>
+              </div>
+              <div class="stone-cluster" data-specimen-source>
+                <button type="button" class="stone-btn stone-btn--icon-end" data-variant="primary" data-shape="pill">
+                  <span>Deploy Snapshot</span>
+                  <kbd class="stone-kbd stone-kbd--inline">Enter</kbd>
+                </button>
+                <button type="button" class="stone-btn" data-variant="ink" data-shape="pill">Capsule Ink CTA</button>
+                <button type="button" class="stone-btn" data-variant="surface" data-loading="true">
+                  <span>Syncing Changes</span>
+                </button>
+                <div class="stone-btn-group" role="group" aria-label="View layout options">
+                  <button type="button" class="stone-btn" data-variant="surface" data-size="sm" aria-pressed="true">Board</button>
+                  <button type="button" class="stone-btn" data-variant="surface" data-size="sm" aria-pressed="false">Table</button>
+                  <button type="button" class="stone-btn" data-variant="surface" data-size="sm" aria-pressed="false">Split</button>
+                </div>
+              </div>
+              <p class="text-caption">Toggled Cobalt fill requires explicit <code class="stone-code-inline">[data-toggle-emphasis="accent"]</code>, while Danger Hold uses darker active crimson fill so white text stays <code class="stone-code-inline">&#8805; 4.5:1</code> throughout the hold.</p>
+            </div>
+          </section>
+
+          <!-- Section 6: Directional Arrows, Chevrons, Stroke Pairing & Navigation Controls -->
+          <section id="arrows" class="docs-section" data-cmdk-section="Directional Arrows &amp; Icons" data-cmdk-hint="Section 6 · Mirroring &amp; Split">
+            <div class="docs-section__head">
+              <span class="text-overline">06 · Icons &amp; Arrows</span>
+              <h2 class="text-title">Directional Arrows, Stroke Weights, Split Buttons &amp; Steppers</h2>
+              <p class="text-body-sm prose text-secondary">
+                Directional vectors apply <code class="stone-code-inline">.icon-directional</code> to flip automatically via <code class="stone-code-inline">[dir="rtl"]</code>, pair stroke thickness across sizes (<code class="stone-code-inline">1.5px / 2px / 2.5px</code>), and nudge forward cleanly on pointer hover.
+              </p>
+            </div>
+
+            <!-- Action Arrows, Chevrons & RTL Toggle -->
+            <div class="stone-surface pad-md stone-stack" data-specimen data-specimen-note="Forward/Back/External Arrow Buttons, Split Buttons, Steppers &amp; Pagination">
+              <div class="stone-row-baseline">
+                <h3 class="text-heading">Interactive Arrow, Split, Disclosure &amp; Pagination Controls</h3>
+                <button type="button" class="stone-btn" data-variant="secondary" data-size="xs" data-dir-toggle aria-pressed="false">
+                  Switch RTL / LTR (<span data-dir-label>LTR</span>)
+                </button>
+              </div>
+
+              <div class="stone-stack" data-specimen-source>
+                <div class="stone-cluster">
+                  <button type="button" class="stone-btn stone-btn--icon-start stone-arrow-btn" data-variant="surface" data-arrow="back">
+                    <svg class="stone-icon icon-w-medium icon-directional stone-icon--arrow" viewBox="0 0 24 24" aria-hidden="true"><use href="#stone-i-arrow-left"></use></svg>
+                    <span>Back</span>
+                  </button>
+
+                  <button type="button" class="stone-btn stone-btn--icon-end stone-arrow-btn" data-variant="primary" data-arrow="forward">
+                    <span>Continue Setup</span>
+                    <svg class="stone-icon icon-w-bold icon-directional stone-icon--arrow" viewBox="0 0 24 24" aria-hidden="true"><use href="#stone-i-arrow-right"></use></svg>
+                  </button>
+
+                  <button type="button" class="stone-btn stone-btn--icon-end stone-arrow-btn" data-variant="secondary" data-arrow="external">
+                    <span>Open Docs</span>
+                    <svg class="stone-icon icon-w-medium icon-directional stone-icon--arrow" viewBox="0 0 24 24" aria-hidden="true"><use href="#stone-i-arrow-up-right"></use></svg>
+                  </button>
+
+                  <button type="button" class="stone-btn stone-btn--icon-end stone-disclosure-btn" data-variant="surface" popovertarget="demo-action-menu" aria-expanded="false">
+                    <span>Inspect Options</span>
+                    <svg class="stone-icon icon-w-bold stone-icon--chevron" viewBox="0 0 24 24" aria-hidden="true"><use href="#stone-i-chevron-down"></use></svg>
+                  </button>
+
+                  <div class="stone-split-btn" role="group" aria-label="Publish split button">
+                    <button type="button" class="stone-btn" data-variant="primary">Publish Changes</button>
+                    <button type="button" class="stone-btn stone-btn--icon" data-variant="primary" popovertarget="demo-action-menu" aria-label="More publish options">
+                      <svg class="stone-icon icon-w-bold" viewBox="0 0 24 24" aria-hidden="true"><use href="#stone-i-chevron-down"></use></svg>
+                    </button>
+                  </div>
+                </div>
+
+                <div class="stone-row-baseline">
+                  <div class="stone-stepper" data-stepper data-min="1" data-max="24" data-value="4" role="group" aria-label="Item quantity stepper">
+                    <button type="button" class="stone-btn stone-btn--icon" data-variant="ghost" data-size="sm" data-step="-1" aria-label="Decrease count">
+                      <svg class="stone-icon icon-w-medium" viewBox="0 0 24 24" aria-hidden="true"><use href="#stone-i-minus"></use></svg>
+                    </button>
+                    <span class="stone-stepper__value text-mono">04 / 24</span>
+                    <button type="button" class="stone-btn stone-btn--icon" data-variant="ghost" data-size="sm" data-step="1" aria-label="Increase count">
+                      <svg class="stone-icon icon-w-medium" viewBox="0 0 24 24" aria-hidden="true"><use href="#stone-i-plus"></use></svg>
+                    </button>
+                  </div>
+
+                  <nav id="demo-pagination" class="stone-pagination" aria-label="Reference pagination">
+                    <button type="button" class="stone-btn stone-btn--icon" data-variant="surface" data-size="sm" data-page-nav="prev" aria-label="Previous page">
+                      <svg class="stone-icon icon-w-medium icon-directional" viewBox="0 0 24 24" aria-hidden="true"><use href="#stone-i-chevron-left"></use></svg>
+                    </button>
+                    <button type="button" class="stone-btn" data-variant="surface" data-size="sm" data-page="1" aria-current="page">1</button>
+                    <button type="button" class="stone-btn" data-variant="surface" data-size="sm" data-page="2">2</button>
+                    <button type="button" class="stone-btn" data-variant="surface" data-size="sm" data-page="3">3</button>
+                    <button type="button" class="stone-btn stone-btn--icon" data-variant="surface" data-size="sm" data-page-nav="next" aria-label="Next page">
+                      <svg class="stone-icon icon-w-medium icon-directional" viewBox="0 0 24 24" aria-hidden="true"><use href="#stone-i-chevron-right"></use></svg>
+                    </button>
+                    <span id="demo-page-status" class="text-caption text-mono" style="padding-inline-start: var(--space-2);">Page 1 of 3</span>
+                  </nav>
+                </div>
+              </div>
+            </div>
+
+            <!-- Stroke Weight Pairing & Click-to-Copy Directional Vector Cards -->
+            <div class="docs-grid-2">
+              <div class="stone-surface pad-md stone-stack">
+                <h3 class="text-heading">Stroke-Weight Optical Pairing</h3>
+                <div class="stone-cluster stone-cluster--icons">
+                  <div class="stone-stack stone-stack--tight" style="align-items: center;">
+                    <svg class="stone-icon icon-w-regular icon-directional" style="--icon-size: 1.5rem;" viewBox="0 0 24 24" aria-hidden="true"><use href="#stone-i-arrow-right"></use></svg>
+                    <span class="text-caption text-mono">1.5px (24px+)</span>
+                  </div>
+                  <div class="stone-stack stone-stack--tight" style="align-items: center;">
+                    <svg class="stone-icon icon-w-medium icon-directional" style="--icon-size: 1.25rem;" viewBox="0 0 24 24" aria-hidden="true"><use href="#stone-i-arrow-right"></use></svg>
+                    <span class="text-caption text-mono">2.0px (20px)</span>
+                  </div>
+                  <div class="stone-stack stone-stack--tight" style="align-items: center;">
+                    <svg class="stone-icon icon-w-bold icon-directional" style="--icon-size: 1rem;" viewBox="0 0 24 24" aria-hidden="true"><use href="#stone-i-arrow-right"></use></svg>
+                    <span class="text-caption text-mono">2.5px (16px)</span>
+                  </div>
+                  <div class="stone-stack stone-stack--tight" style="align-items: center;">
+                    <button type="button" class="stone-btn stone-btn--icon" data-variant="surface" aria-label="Play media sample">
+                      <svg class="stone-icon icon-w-medium icon-play" viewBox="0 0 24 24" aria-hidden="true"><use href="#stone-i-play"></use></svg>
+                    </button>
+                    <span class="text-caption text-mono">+2px Play Shift</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="stone-surface pad-md stone-stack">
+                <h3 class="text-heading">CSS-Driven Mask Arrows (No Duplicate SVG Nodes)</h3>
+                <div class="stone-cluster">
+                  <a href="#forms" class="stone-btn stone-mask-end" data-variant="surface" style="--icon-end: var(--icon-arrow-right-mask);">Mask Forward</a>
+                  <span class="stone-badge stone-mask-start" data-tone="success" style="--icon-start: var(--icon-check-mask);">Verified Mask</span>
+                </div>
+                <p class="text-caption">Zero forced-colors loss via <code class="stone-code-inline">forced-color-adjust: none</code> on the icon pseudo-element.</p>
+              </div>
+            </div>
+
+            <div class="docs-icon-grid">
+              <button type="button" class="docs-icon-card" data-copy-text='<svg class="stone-icon icon-w-medium icon-directional" viewBox="0 0 24 24" aria-hidden="true"><use href="#stone-i-arrow-right"></use></svg>'>
+                <svg class="stone-icon icon-w-medium icon-directional" style="--icon-size: 1.375rem;" viewBox="0 0 24 24" aria-hidden="true"><use href="#stone-i-arrow-right"></use></svg>
+                <span class="text-caption text-mono">arrow-right</span>
+              </button>
+              <button type="button" class="docs-icon-card" data-copy-text='<svg class="stone-icon icon-w-medium icon-directional" viewBox="0 0 24 24" aria-hidden="true"><use href="#stone-i-arrow-left"></use></svg>'>
+                <svg class="stone-icon icon-w-medium icon-directional" style="--icon-size: 1.375rem;" viewBox="0 0 24 24" aria-hidden="true"><use href="#stone-i-arrow-left"></use></svg>
+                <span class="text-caption text-mono">arrow-left</span>
+              </button>
+              <button type="button" class="docs-icon-card" data-copy-text='<svg class="stone-icon icon-w-medium" viewBox="0 0 24 24" aria-hidden="true"><use href="#stone-i-arrow-up"></use></svg>'>
+                <svg class="stone-icon icon-w-medium" style="--icon-size: 1.375rem;" viewBox="0 0 24 24" aria-hidden="true"><use href="#stone-i-arrow-up"></use></svg>
+                <span class="text-caption text-mono">arrow-up</span>
+              </button>
+              <button type="button" class="docs-icon-card" data-copy-text='<svg class="stone-icon icon-w-medium" viewBox="0 0 24 24" aria-hidden="true"><use href="#stone-i-arrow-down"></use></svg>'>
+                <svg class="stone-icon icon-w-medium" style="--icon-size: 1.375rem;" viewBox="0 0 24 24" aria-hidden="true"><use href="#stone-i-arrow-down"></use></svg>
+                <span class="text-caption text-mono">arrow-down</span>
+              </button>
+              <button type="button" class="docs-icon-card" data-copy-text='<svg class="stone-icon icon-w-medium icon-directional" viewBox="0 0 24 24" aria-hidden="true"><use href="#stone-i-arrow-up-right"></use></svg>'>
+                <svg class="stone-icon icon-w-medium icon-directional" style="--icon-size: 1.375rem;" viewBox="0 0 24 24" aria-hidden="true"><use href="#stone-i-arrow-up-right"></use></svg>
+                <span class="text-caption text-mono">arrow-up-right</span>
+              </button>
+              <button type="button" class="docs-icon-card" data-copy-text='<svg class="stone-icon icon-w-medium" viewBox="0 0 24 24" aria-hidden="true"><use href="#stone-i-arrow-left-right"></use></svg>'>
+                <svg class="stone-icon icon-w-medium" style="--icon-size: 1.375rem;" viewBox="0 0 24 24" aria-hidden="true"><use href="#stone-i-arrow-left-right"></use></svg>
+                <span class="text-caption text-mono">arrow-left-right</span>
+              </button>
+              <button type="button" class="docs-icon-card" data-copy-text='<svg class="stone-icon icon-w-medium icon-directional" viewBox="0 0 24 24" aria-hidden="true"><use href="#stone-i-chevron-right"></use></svg>'>
+                <svg class="stone-icon icon-w-medium icon-directional" style="--icon-size: 1.375rem;" viewBox="0 0 24 24" aria-hidden="true"><use href="#stone-i-chevron-right"></use></svg>
+                <span class="text-caption text-mono">chevron-right</span>
+              </button>
+              <button type="button" class="docs-icon-card" data-copy-text='<svg class="stone-icon icon-w-medium" viewBox="0 0 24 24" aria-hidden="true"><use href="#stone-i-chevrons-up-down"></use></svg>'>
+                <svg class="stone-icon icon-w-medium" style="--icon-size: 1.375rem;" viewBox="0 0 24 24" aria-hidden="true"><use href="#stone-i-chevrons-up-down"></use></svg>
+                <span class="text-caption text-mono">chevrons-up-down</span>
+              </button>
+              <button type="button" class="docs-icon-card" data-copy-text='<svg class="stone-icon icon-w-medium icon-directional" viewBox="0 0 24 24" aria-hidden="true"><use href="#stone-i-corner-down-right"></use></svg>'>
+                <svg class="stone-icon icon-w-medium icon-directional" style="--icon-size: 1.375rem;" viewBox="0 0 24 24" aria-hidden="true"><use href="#stone-i-corner-down-right"></use></svg>
+                <span class="text-caption text-mono">corner-down-right</span>
+              </button>
+            </div>
+          </section>
+
+          <!-- Section 7: Forms, Inputs, Switches & Validation -->
+          <section id="forms" class="docs-section" data-cmdk-section="Forms &amp; Selection Controls" data-cmdk-hint="Section 7 · 16px Mobile Floor">
+            <div class="docs-section__head">
+              <span class="text-overline">07 · Forms &amp; Inputs</span>
+              <h2 class="text-title">Accessible Inputs, <code class="stone-code-inline">base-select</code>, Choice Cards &amp; Live Validation</h2>
+              <p class="text-body-sm prose text-secondary">
+                Touch-safe <code class="stone-code-inline">1rem</code> (<code class="stone-code-inline">16px</code>) input floors prevent mobile iOS auto-zoom, while <code class="stone-code-inline">:user-invalid</code> avoids premature error states on untouched controls.
+              </p>
+            </div>
+
+            <div class="stone-surface pad-md" data-specimen data-specimen-note="Form fields, branded select, switch &amp; :user-invalid validation">
+              <form id="stone-demo-form" class="stone-form" data-specimen-source novalidate>
+                <div class="docs-grid-2">
+                  <div class="stone-field">
+                    <label class="stone-label" for="demo-project-name">Project Identifier</label>
+                    <input id="demo-project-name" name="projectName" type="text" class="stone-input" placeholder="e.g. stone-notes" minlength="3" required aria-describedby="demo-project-hint demo-project-error">
+                    <p id="demo-project-hint" class="stone-hint">At least 3 lowercase characters used across the suite switcher.</p>
+                    <p id="demo-project-error" class="stone-error-msg" hidden>
+                      <svg class="stone-icon icon-w-bold" viewBox="0 0 24 24" aria-hidden="true"><use href="#stone-i-x"></use></svg>
+                      <span id="demo-project-error-text"></span>
+                    </p>
+                  </div>
+
+                  <div class="stone-field">
+                    <label class="stone-label" for="demo-owner-email">Notification Email</label>
+                    <div class="stone-input-group">
+                      <svg class="stone-icon icon-w-regular stone-input-group__icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#stone-i-mail"></use></svg>
+                      <input id="demo-owner-email" name="ownerEmail" type="email" class="stone-input" placeholder="design@stonebase.local" required aria-describedby="demo-email-error">
+                    </div>
+                    <p id="demo-email-error" class="stone-error-msg" hidden>
+                      <svg class="stone-icon icon-w-bold" viewBox="0 0 24 24" aria-hidden="true"><use href="#stone-i-x"></use></svg>
+                      <span id="demo-email-error-text"></span>
+                    </p>
+                  </div>
+                </div>
+
+                <div class="docs-grid-2">
+                  <div class="stone-field">
+                    <label class="stone-label" for="demo-shell-select">Application Shell Variant</label>
+                    <select id="demo-shell-select" class="stone-select stone-select--branded">
+                      <option value="compact">shell-compact (Focused Utility)</option>
+                      <option value="workspace" selected>shell-workspace (256px Navigation Rail)</option>
+                    </select>
+                  </div>
+
+                  <div class="stone-field">
+                    <div class="stone-row-baseline">
+                      <label class="stone-label" for="demo-density-range">Accent Emphasis &amp; Readiness</label>
+                      <span class="text-caption tabular-nums">68%</span>
+                    </div>
+                    <input id="demo-density-range" type="range" class="stone-range" min="1" max="5" value="3">
+                    <progress class="stone-progress" value="68" max="100" aria-label="Adoption readiness 68 percent">68%</progress>
+                  </div>
+                </div>
+
+                <div class="docs-grid-2">
+                  <div class="stone-field">
+                    <label class="stone-label" for="demo-readonly-id">Readonly Token Namespace</label>
+                    <input id="demo-readonly-id" type="text" readonly value="stone-base-v1.1.2" class="stone-input text-mono">
+                  </div>
+                  <div class="stone-field">
+                    <label class="stone-label" for="demo-disabled-field">Locked Environment</label>
+                    <input id="demo-disabled-field" type="text" disabled value="production-main" class="stone-input text-mono">
+                  </div>
+                </div>
+
+                <fieldset class="stone-stack stone-stack--tight" style="border: 0; padding: 0; margin: 0;">
+                  <legend class="stone-label">Selection Controls &amp; Interactive Choice Cards</legend>
+                  <div class="docs-grid-2">
+                    <label class="stone-choice-card">
+                      <input type="radio" class="stone-radio" name="stone-tier" value="compact" checked>
+                      <span class="stone-stack stone-stack--tight">
+                        <span class="text-body-sm text-semibold">Compact Utility Tool</span>
+                        <span class="text-caption">Top header switcher + focused container.</span>
+                      </span>
+                    </label>
+                    <label class="stone-choice-card">
+                      <input type="radio" class="stone-radio" name="stone-tier" value="workspace">
+                      <span class="stone-stack stone-stack--tight">
+                        <span class="text-body-sm text-semibold">Multi-View Workspace</span>
+                        <span class="text-caption">256px sidebar rail + curved SidebarInset.</span>
+                      </span>
+                    </label>
+                  </div>
+                </fieldset>
+
+                <div class="stone-cluster">
+                  <label class="stone-check-label">
+                    <input type="checkbox" class="stone-checkbox" checked>
+                    <span>Enable reduced-motion hardware path</span>
+                  </label>
+                  <label class="stone-check-label">
+                    <input type="checkbox" class="stone-switch" role="switch" checked>
+                    <span>Sync preferences across tabs</span>
+                  </label>
+                </div>
+
+                <div class="stone-cluster">
+                  <button type="submit" class="stone-btn" data-variant="primary">Validate &amp; Submit Form</button>
+                  <button type="reset" class="stone-btn" data-variant="ghost">Reset</button>
+                </div>
+              </form>
+            </div>
+          </section>
+
+          <!-- Section 8: Overlays, Tables, Tooltips, Accordions, Empty States & Toasts -->
+          <section id="overlays" class="docs-section" data-cmdk-section="Overlays, Tables &amp; Feedback" data-cmdk-hint="Section 8 · Top Layer">
+            <div class="docs-section__head">
+              <span class="text-overline">08 · Overlays, Data &amp; Feedback</span>
+              <h2 class="text-title">Popovers, Adjacent Tooltips, Modals, Accordions &amp; Empty States</h2>
+              <p class="text-body-sm prose text-secondary">
+                Top-layer elements animate cleanly on both entry and exit using <code class="stone-code-inline">@starting-style</code> and <code class="stone-code-inline">transition-behavior: allow-discrete</code>, while keeping modal backdrops locked against scroll chaining.
+              </p>
+            </div>
+
+            <div class="docs-grid-2">
+              <div class="stone-surface pad-md stone-stack">
+                <h3 class="text-heading">Interactive Triggers &amp; Adjacent Instant Tooltips</h3>
+                <div class="stone-cluster stone-tooltip-group" aria-label="Adjacent tooltip demo bar">
+                  <button type="button" class="stone-btn" data-variant="surface" popovertarget="demo-action-menu" aria-expanded="false">Anchored Popover</button>
+                  <button type="button" class="stone-btn" data-variant="primary" data-dialog-open="demo-confirm-dialog">Open Modal Dialog</button>
+                  <button type="button" class="stone-btn stone-btn--icon" data-variant="secondary" data-tooltip="Align layout grid" aria-label="Align items">
+                    <svg class="stone-icon icon-w-medium" viewBox="0 0 24 24" aria-hidden="true"><use href="#stone-i-sliders"></use></svg>
+                  </button>
+                  <button type="button" class="stone-btn stone-btn--icon" data-variant="secondary" data-tooltip="Duplicate token set" aria-label="Duplicate selection">
+                    <svg class="stone-icon icon-w-medium" viewBox="0 0 24 24" aria-hidden="true"><use href="#stone-i-copy"></use></svg>
+                  </button>
+                  <button type="button" class="stone-btn stone-btn--icon" data-variant="secondary" data-tooltip="Filter primitive rows" aria-label="Filter items">
+                    <svg class="stone-icon icon-w-medium" viewBox="0 0 24 24" aria-hidden="true"><use href="#stone-i-filter"></use></svg>
+                  </button>
+                </div>
+                <p class="text-caption">Hover from one icon to its neighbor for zero-delay handoff, hover the tooltip itself without dismissing, or press <code class="stone-code-inline">Escape</code> per WCAG 1.4.13.</p>
+
+                <div class="stone-cluster">
+                  <button type="button" class="stone-btn" data-variant="surface" data-toast-trigger data-toast-title="Changes saved" data-toast-desc="Token snapshot synced cleanly across local tabs." data-toast-tone="neutral">
+                    Trigger Neutral Toast
+                  </button>
+                  <button type="button" class="stone-btn" data-variant="danger-subtle" data-toast-trigger data-toast-title="3 items archived" data-toast-desc="Top-layer frosted ceramic toast clears modal dialogs cleanly." data-toast-tone="danger">
+                    Trigger Danger Toast
+                  </button>
+                </div>
+              </div>
+
+              <div class="stone-surface pad-md stone-stack">
+                <h3 class="text-heading">Banners &amp; Status Badges</h3>
+                <div class="stone-cluster">
+                  <span class="stone-badge">Neutral</span>
+                  <span class="stone-badge" data-tone="accent">Accent</span>
+                  <span class="stone-badge" data-tone="success" data-shape="pill">Success Pill</span>
+                  <span class="stone-badge" data-tone="warning" data-shape="pill">Warning Pill</span>
+                  <span class="stone-badge" data-tone="danger">Danger</span>
+                </div>
+                <div class="stone-banner" data-tone="accent" role="note">
+                  <svg class="stone-icon icon-w-medium" viewBox="0 0 24 24" aria-hidden="true"><use href="#stone-i-bell"></use></svg>
+                  <div>
+                    <div class="text-body-sm text-semibold">Consistent Level-0 Contracts</div>
+                    <div class="text-caption">Toasts automatically suppress over modal dialogs while keeping polite live-region speech active.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- v1.1.1a Bento KPI Tiles & Dismissible Filter Chips -->
+            <div class="stone-surface pad-md stone-stack" data-specimen data-specimen-note="v1.1.1a Bento KPI tiles with trend pills and removable filter chips">
+              <div class="stone-row-baseline">
+                <h3 class="text-heading">Bento KPI Tiles, Trend Pills &amp; Filter Chips</h3>
+                <span class="stone-badge" data-tone="accent" data-shape="pill">Modern Surfaces</span>
+              </div>
+              <div class="stone-bento-grid" data-specimen-source>
+                <article class="stone-bento-card">
+                  <div class="stone-bento-card__top">
+                    <span class="text-overline">Active Workspaces</span>
+                    <span class="stone-trend-pill" data-trend="up">
+                      <svg class="stone-icon icon-w-bold" style="--icon-size: 0.875rem;" viewBox="0 0 24 24" aria-hidden="true"><use href="#stone-i-trending-up"></use></svg>
+                      <span>+14.2%</span>
+                    </span>
+                  </div>
+                  <div class="stone-bento-card__value">1,284</div>
+                  <p class="text-caption">Synced to Level-0 tokens this cycle</p>
+                </article>
+                <article class="stone-bento-card">
+                  <div class="stone-bento-card__top">
+                    <span class="text-overline">Token Drift Errors</span>
+                    <span class="stone-trend-pill" data-trend="down">
+                      <svg class="stone-icon icon-w-bold" style="--icon-size: 0.875rem;" viewBox="0 0 24 24" aria-hidden="true"><use href="#stone-i-trending-down"></use></svg>
+                      <span>-0.8%</span>
+                    </span>
+                  </div>
+                  <div class="stone-bento-card__value">0</div>
+                  <p class="text-caption">Strict hairline &amp; WCAG AA gate</p>
+                </article>
+                <article class="stone-bento-card">
+                  <div class="stone-bento-card__top">
+                    <span class="text-overline">Median Palette Latency</span>
+                    <span class="stone-trend-pill" data-trend="flat">
+                      <span>0.0%</span>
+                    </span>
+                  </div>
+                  <div class="stone-bento-card__value">0 ms</div>
+                  <p class="text-caption">Frequency-gated instant overlay</p>
+                </article>
+              </div>
+              <div class="stone-cluster" data-chip-group aria-label="Removable filter chips demo">
+                <span class="stone-chip" data-tone="accent" data-chip-label="Shell: Workspace">
+                  <span>Shell: Workspace</span>
+                  <button type="button" class="stone-chip__remove" aria-label="Remove filter Shell: Workspace">
+                    <svg class="stone-icon icon-w-bold" style="--icon-size: 0.75rem;" viewBox="0 0 24 24" aria-hidden="true"><use href="#stone-i-x"></use></svg>
+                  </button>
+                </span>
+                <span class="stone-chip" data-chip-label="Contrast: WCAG AA">
+                  <span>Contrast: WCAG AA</span>
+                  <button type="button" class="stone-chip__remove" aria-label="Remove filter Contrast: WCAG AA">
+                    <svg class="stone-icon icon-w-bold" style="--icon-size: 0.75rem;" viewBox="0 0 24 24" aria-hidden="true"><use href="#stone-i-x"></use></svg>
+                  </button>
+                </span>
+                <span class="stone-chip" data-chip-label="Direction: Logical">
+                  <span>Direction: Logical</span>
+                  <button type="button" class="stone-chip__remove" aria-label="Remove filter Direction: Logical">
+                    <svg class="stone-icon icon-w-bold" style="--icon-size: 0.75rem;" viewBox="0 0 24 24" aria-hidden="true"><use href="#stone-i-x"></use></svg>
+                  </button>
+                </span>
+                <button type="button" class="stone-btn" data-variant="ghost" data-size="xs" data-chip-reset hidden>Reset filter chips</button>
+              </div>
+            </div>
+
+            <!-- v1.1.1a Floating Glass Dock & 3-Pane Inspector Specimen -->
+            <div class="docs-grid-2">
+              <div class="stone-surface pad-md stone-stack">
+                <div class="stone-row-baseline">
+                  <h3 class="text-heading">Floating Glass Selection Dock</h3>
+                  <button type="button" class="stone-btn" data-variant="surface" data-size="xs" data-shape="pill" data-demo-dock-toggle="index-floating-dock-demo" aria-pressed="false">
+                    Toggle Live Dock
+                  </button>
+                </div>
+                <p class="text-caption">
+                  Multi-select workflows reveal a centered glass capsule (<code class="stone-code-inline">.stone-floating-bar</code>) instead of repeating row action menus.
+                </p>
+                <div class="stone-floating-bar stone-floating-bar--static" aria-label="Static dock specimen">
+                  <span class="stone-floating-bar__count">2 items selected</span>
+                  <button type="button" class="stone-btn" data-variant="primary" data-size="xs" data-shape="pill" data-toast-trigger data-toast-title="2 items verified" data-toast-tone="success">Verify</button>
+                  <button type="button" class="stone-btn" data-variant="surface" data-size="xs" data-shape="pill">Clear</button>
+                </div>
+              </div>
+
+              <div class="stone-surface pad-md stone-stack">
+                <div class="stone-row-baseline">
+                  <h3 class="text-heading">3-Pane Contextual Inspector</h3>
+                  <a href="./examples/workspace-app.html" class="stone-btn" data-variant="surface" data-size="xs" data-shape="pill">Try Live</a>
+                </div>
+                <p class="text-caption">Desktop widescreens (&gt;= 1024px) dock a <code class="stone-code-inline">320px</code> hairline inspector on the trailing edge; mobile falls back to a modal sheet.</p>
+                <div class="docs-inspector-preview" aria-label="3-pane architecture preview">
+                  <div class="stone-well pad-sm stone-stack stone-stack--tight">
+                    <span class="text-overline">1 · Rail</span>
+                    <span class="text-caption">256px Nav</span>
+                  </div>
+                  <div class="stone-surface pad-sm stone-stack stone-stack--tight">
+                    <span class="text-overline">2 · Main Canvas</span>
+                    <span class="text-caption">Bento + Table</span>
+                  </div>
+                  <div class="stone-surface pad-sm stone-stack stone-stack--tight">
+                    <span class="text-overline">3 · Inspector</span>
+                    <dl class="stone-prop-grid">
+                      <div class="stone-prop-row"><dt>Mode</dt><dd>Docked</dd></div>
+                      <div class="stone-prop-row"><dt>Width</dt><dd>320px</dd></div>
+                    </dl>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Accordion & Empty State & 320px Mobile Reflow Frame -->
+            <div class="docs-grid-2">
+              <div class="stone-stack">
+                <div class="stone-accordion">
+                  <details class="stone-details" open>
+                    <summary>
+                      <span>Why clamp motion to specific GPU properties?</span>
+                      <svg class="stone-icon icon-w-medium stone-details__chevron" viewBox="0 0 24 24" aria-hidden="true"><use href="#stone-i-chevron-down"></use></svg>
+                    </summary>
+                    <div class="stone-details__panel">
+                      Stone Base forbids <code class="stone-code-inline">transition: all</code> and <code class="stone-code-inline">ease-in</code>. Only <code class="stone-code-inline">transform</code> and <code class="stone-code-inline">opacity</code> animate smoothly under the compositor without triggering layout thrashing.
+                    </div>
+                  </details>
+                  <details class="stone-details">
+                    <summary>
+                      <span>How does Ctrl+K obey the Frequency Gate?</span>
+                      <svg class="stone-icon icon-w-medium stone-details__chevron" viewBox="0 0 24 24" aria-hidden="true"><use href="#stone-i-chevron-down"></use></svg>
+                    </summary>
+                    <div class="stone-details__panel">
+                      Power-user commands opened dozens of times per hour use <code class="stone-code-inline">.stone-dialog--instant</code> (<code class="stone-code-inline">0ms</code>) so the input feels instantaneous.
+                    </div>
+                  </details>
+                </div>
+
+                <div class="stone-surface">
+                  <div class="stone-empty">
+                    <span class="stone-empty__icon" aria-hidden="true">
+                      <svg class="stone-icon icon-w-regular" viewBox="0 0 24 24"><use href="#stone-i-inbox"></use></svg>
+                    </span>
+                    <div class="stone-stack stone-stack--tight">
+                      <h3 class="text-heading">No pending migrations</h3>
+                      <p class="text-caption prose">Convert an existing interface using the Suite Operations template or open the quick launcher.</p>
+                    </div>
+                    <a href="./examples/workspace-app.html" class="stone-btn stone-btn--icon-end stone-arrow-btn" data-variant="primary" data-arrow="forward">
+                      <span>Launch Console Template</span>
+                      <svg class="stone-icon icon-w-bold icon-directional stone-icon--arrow" viewBox="0 0 24 24" aria-hidden="true"><use href="#stone-i-arrow-right"></use></svg>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="stone-surface pad-md stone-stack">
+                <h3 class="text-heading">320px Mobile Reflow Contract Frame</h3>
+                <p class="text-caption">Every Stone Base surface and toolbar wraps cleanly down to <code class="stone-code-inline">320px</code> without horizontal scrollbars.</p>
+                <div class="docs-reflow-viewport">
+                  <div class="stone-surface pad-sm stone-stack stone-stack--tight">
+                    <div class="stone-row-baseline">
+                      <span class="text-body-sm text-semibold">Token Export</span>
+                      <span class="stone-badge" data-tone="success">Ready</span>
+                    </div>
+                    <p class="text-caption">Compact cards collapse side actions smoothly without clipping labels.</p>
+                    <div class="stone-cluster">
+                      <button type="button" class="stone-btn" data-variant="primary" data-size="sm">Export</button>
+                      <button type="button" class="stone-btn" data-variant="surface" data-size="sm">Preview</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Section 9: Graphs, Reservations, Workers & Background Automation -->
+          <section id="domains" class="docs-section" data-cmdk-section="Graphs &amp; Domain Primitives" data-cmdk-hint="Section 9 · Suite Domains">
+            <div class="docs-section__head">
+              <span class="text-overline">09 · All-in-One Domains</span>
+              <h2 class="text-title">Graphs, Workers, Calendar Slots &amp; Automation Traces</h2>
+              <p class="text-body-sm prose text-secondary">
+                Additive patterns in <code class="stone-code-inline">css/stone-patterns.css</code> compose directly over the 6-Box architecture without adding runtime weight to simple utilities.
+              </p>
+            </div>
+
+            <div class="docs-grid-2">
+              <div class="stone-surface pad-md stone-stack">
+                <div class="stone-row-baseline">
+                  <h3 class="text-heading">Interactive Graph Series (<code class="stone-code-inline">--color-chart-1..6</code>)</h3>
+                  <a href="./examples/workspace-app.html" class="stone-btn" data-variant="surface" data-size="xs" data-shape="pill">Open Chart Demo</a>
+                </div>
+                <div class="stone-chart-frame" style="min-block-size: 9.5rem;">
+                  <svg class="stone-chart-svg" viewBox="0 0 360 120" role="img" aria-label="Sample multi-series Stone chart">
+                    <line x1="20" y1="24" x2="344" y2="24" class="stone-chart-gridline"></line>
+                    <line x1="20" y1="60" x2="344" y2="60" class="stone-chart-gridline"></line>
+                    <line x1="20" y1="96" x2="344" y2="96" class="stone-chart-gridline"></line>
+                    <rect x="40" y="42" width="18" height="54" rx="3" fill="var(--color-chart-1)"></rect>
+                    <rect x="60" y="56" width="18" height="40" rx="3" fill="var(--color-chart-2)"></rect>
+                    <rect x="112" y="28" width="18" height="68" rx="3" fill="var(--color-chart-1)"></rect>
+                    <rect x="132" y="48" width="18" height="48" rx="3" fill="var(--color-chart-2)"></rect>
+                    <rect x="184" y="34" width="18" height="62" rx="3" fill="var(--color-chart-1)"></rect>
+                    <rect x="204" y="42" width="18" height="54" rx="3" fill="var(--color-chart-2)"></rect>
+                    <rect x="256" y="20" width="18" height="76" rx="3" fill="var(--color-chart-1)"></rect>
+                    <rect x="276" y="38" width="18" height="58" rx="3" fill="var(--color-chart-2)"></rect>
+                    <polyline points="49,42 121,28 193,34 265,20" fill="none" stroke="var(--color-chart-3)" stroke-width="2" stroke-linecap="round"></polyline>
+                  </svg>
+                </div>
+                <ul class="stone-chart-legend" aria-label="Mini chart legend">
+                  <li class="stone-chart-legend__item"><span class="stone-chart-legend__swatch" style="--series-color: var(--color-chart-1);"></span><span>Capacity</span></li>
+                  <li class="stone-chart-legend__item"><span class="stone-chart-legend__swatch" style="--series-color: var(--color-chart-2);"></span><span>Load</span></li>
+                  <li class="stone-chart-legend__item"><span class="stone-chart-legend__swatch" style="--series-color: var(--color-chart-3);"></span><span>SLA Line</span></li>
+                </ul>
+              </div>
+
+              <div class="stone-surface pad-md stone-stack">
+                <div class="stone-row-baseline">
+                  <h3 class="text-heading">5-State Calendar Slots &amp; Reservations</h3>
+                  <a href="./examples/reservations.html" class="stone-btn" data-variant="surface" data-size="xs" data-shape="pill">Open Calendar App</a>
+                </div>
+                <div class="stone-stack stone-stack--tight">
+                  <div class="stone-slot" data-state="available"><span><bdi>09:00 – 10:30</bdi> · Open Slot</span><span class="stone-badge" data-tone="accent" data-shape="pill">Available</span></div>
+                  <div class="stone-slot" data-state="confirmed"><span><bdi>10:30 – 12:00</bdi> · Sound Stage A</span><span class="text-caption">Confirmed</span></div>
+                  <div class="stone-slot" data-state="pending"><span><bdi>13:00 – 14:30</bdi> · Held 4m</span><span class="stone-badge" data-tone="warning" data-shape="pill">Pending</span></div>
+                  <div class="stone-slot" data-state="conflict"><span><bdi>14:30 – 16:00</bdi> · Overlap</span><span class="stone-badge" data-tone="danger" data-shape="pill">Conflict</span></div>
+                  <div class="stone-slot" data-state="unavailable" aria-disabled="true"><span><bdi>16:00 – 17:30</bdi> · Maintenance</span><span class="text-caption">Closed</span></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="docs-grid-2">
+              <div class="stone-surface pad-md stone-stack">
+                <div class="stone-row-baseline">
+                  <h3 class="text-heading">Worker Presence Pills</h3>
+                  <a href="./examples/workspace-app.html#worker-roster" class="stone-btn" data-variant="surface" data-size="xs" data-shape="pill">Inspect Roster</a>
+                </div>
+                <div class="stone-cluster">
+                  <span class="stone-badge" data-tone="success" data-shape="pill"><span class="stone-badge__dot" aria-hidden="true"></span><span>On Shift</span></span>
+                  <span class="stone-badge" data-tone="accent" data-shape="pill"><span class="stone-badge__dot" aria-hidden="true"></span><span>Busy</span></span>
+                  <span class="stone-badge" data-tone="warning" data-shape="pill"><span class="stone-badge__dot" aria-hidden="true"></span><span>Break</span></span>
+                  <span class="stone-badge" data-shape="pill"><span class="stone-badge__dot" aria-hidden="true"></span><span>Off Duty</span></span>
+                </div>
+                <p class="text-caption">Paired circular status dots (`6px`) render inside high-contrast pill badges across sticky roster tables.</p>
+              </div>
+
+              <div class="stone-surface pad-md stone-stack">
+                <div class="stone-row-baseline">
+                  <h3 class="text-heading">Automation Waterfall &amp; Queue States</h3>
+                  <a href="./examples/automation-runs.html" class="stone-btn" data-variant="surface" data-size="xs" data-shape="pill">Open Queue</a>
+                </div>
+                <div class="stone-cluster">
+                  <span class="stone-badge" data-shape="pill"><span class="stone-badge__dot" aria-hidden="true"></span><span>Queued</span></span>
+                  <span class="stone-badge" data-tone="accent" data-shape="pill"><span class="stone-badge__dot" aria-hidden="true"></span><span>Running</span></span>
+                  <span class="stone-badge" data-tone="warning" data-shape="pill"><span class="stone-badge__dot" aria-hidden="true"></span><span>Retrying 2/5</span></span>
+                  <span class="stone-badge" data-tone="success" data-shape="pill"><span class="stone-badge__dot" aria-hidden="true"></span><span>Completed</span></span>
+                  <span class="stone-badge" data-tone="danger" data-shape="pill"><span class="stone-badge__dot" aria-hidden="true"></span><span>Failed</span></span>
+                </div>
+                <div class="stone-waterfall" role="img" aria-label="Sample queue delay and execution waterfall bar">
+                  <div class="stone-waterfall__queue" style="inline-size: 16%;"></div>
+                  <div class="stone-waterfall__exec" data-tone="success" style="inline-size: 62%;"></div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Section 10: Quad-App Suite Architecture Blueprint -->
+          <section id="shells" class="docs-section" data-cmdk-section="Dual-Shell App Blueprint" data-cmdk-hint="Section 10 · Suite Integration">
+            <div class="docs-section__head">
+              <span class="text-overline">10 · Suite Navigation</span>
+              <h2 class="text-title">Two Suite Shells Across Four Connected Reference Apps</h2>
+              <p class="text-body-sm prose text-secondary">
+                Both focused single-task utilities (<code class="stone-code-inline">.stone-shell--compact</code>) and multi-pane consoles (<code class="stone-code-inline">.stone-shell--workspace</code>) share one ceramic topbar, Suite Switcher, and <code class="stone-code-inline">Ctrl+K</code> launcher.
+              </p>
+            </div>
+
+            <div class="docs-grid-2">
+              <article class="stone-raised is-interactive pad-md stone-stack">
+                <span class="text-overline">Shell A · Focused Utility</span>
+                <h3 class="text-heading">Stone Converter Utility</h3>
+                <p class="text-body-sm text-secondary prose">
+                  <code class="stone-code-inline">48px</code> frosted topbar + URL-synced underline tabs + <code class="stone-code-inline">688px</code> centered canvas.
+                </p>
+                <a href="./examples/compact-utility.html" class="stone-btn stone-btn--icon-end stone-arrow-btn" data-variant="surface" data-arrow="forward">
+                  <span>Open Compact Converter</span>
+                  <svg class="stone-icon icon-w-bold icon-directional stone-icon--arrow" viewBox="0 0 24 24" aria-hidden="true"><use href="#stone-i-arrow-right"></use></svg>
+                </a>
+              </article>
+
+              <article class="stone-raised is-interactive pad-md stone-stack">
+                <span class="text-overline">Shell A+ · Booking Flow</span>
+                <h3 class="text-heading">Studio Reservations</h3>
+                <p class="text-body-sm text-secondary prose">
+                  <code class="stone-code-inline">880px</code> compact container + 7-column calendar + 5-state slot picker + summary dialog.
+                </p>
+                <a href="./examples/reservations.html" class="stone-btn stone-btn--icon-end stone-arrow-btn" data-variant="surface" data-arrow="forward">
+                  <span>Open Reservations App</span>
+                  <svg class="stone-icon icon-w-bold icon-directional stone-icon--arrow" viewBox="0 0 24 24" aria-hidden="true"><use href="#stone-i-arrow-right"></use></svg>
+                </a>
+              </article>
+
+              <article class="stone-raised is-interactive pad-md stone-stack">
+                <span class="text-overline">Shell B · Workers + Graphs</span>
+                <h3 class="text-heading">Worker Operations &amp; Analytics</h3>
+                <p class="text-body-sm text-secondary prose">
+                  <code class="stone-code-inline">Ctrl+B</code> rail + Bento KPI strip + interactive SVG charts + 3-pane worker inspector.
+                </p>
+                <a href="./examples/workspace-app.html" class="stone-btn stone-btn--icon-end stone-arrow-btn" data-variant="primary" data-arrow="forward">
+                  <span>Open Worker Operations</span>
+                  <svg class="stone-icon icon-w-bold icon-directional stone-icon--arrow" viewBox="0 0 24 24" aria-hidden="true"><use href="#stone-i-arrow-right"></use></svg>
+                </a>
+              </article>
+
+              <article class="stone-raised is-interactive pad-md stone-stack">
+                <span class="text-overline">Shell B · Background Jobs</span>
+                <h3 class="text-heading">Automation Runs Console</h3>
+                <p class="text-body-sm text-secondary prose">
+                  Live sync banner + 6-state lifecycle table + expandable step logs + waterfall trace pane.
+                </p>
+                <a href="./examples/automation-runs.html" class="stone-btn stone-btn--icon-end stone-arrow-btn" data-variant="ink" data-arrow="forward">
+                  <span>Open Automation Runs</span>
+                  <svg class="stone-icon icon-w-bold icon-directional stone-icon--arrow" viewBox="0 0 24 24" aria-hidden="true"><use href="#stone-i-arrow-right"></use></svg>
+                </a>
+              </article>
+            </div>
+          </section>
+
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <!-- Anchored Demo Action Popover -->
+  <div id="demo-action-menu" class="stone-overlay stone-popover" popover="auto" data-anchored="true">
+    <div class="stone-menu-list" role="menu" aria-label="Sample contextual actions">
+      <button type="button" class="stone-menu-item" role="menuitem" data-demo-action="publish">
+        <span>Publish immediately</span>
+        <svg class="stone-icon icon-w-regular icon-directional" viewBox="0 0 24 24" aria-hidden="true"><use href="#stone-i-arrow-right"></use></svg>
+      </button>
+      <button type="button" class="stone-menu-item" role="menuitem" data-demo-action="export-json">
+        <span>Export specification JSON</span>
+        <span class="text-caption">Ctrl+E</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Blocking Confirmation Modal Dialog -->
+  <dialog id="demo-confirm-dialog" class="stone-modal stone-dialog" data-width="sm" closedby="any" aria-labelledby="demo-dialog-title">
+    <header class="stone-dialog__header">
+      <h3 id="demo-dialog-title" class="text-heading">Archive Example Project?</h3>
+      <button type="button" class="stone-btn stone-btn--icon" data-variant="ghost" data-size="xs" data-dialog-close aria-label="Close modal dialog">
+        <svg class="stone-icon icon-w-medium" viewBox="0 0 24 24" aria-hidden="true"><use href="#stone-i-x"></use></svg>
+      </button>
+    </header>
+    <div class="stone-dialog__body stone-stack stone-stack--tight">
+      <p class="text-body-sm text-secondary prose">
+        Modal dialogs trap focus natively inside the top layer, contain scroll behind <code class="stone-code-inline">overscroll-behavior: contain</code>, and restore focus to the trigger when closed.
+      </p>
+    </div>
+    <footer class="stone-dialog__footer">
+      <button type="button" class="stone-btn" data-variant="ghost" data-dialog-close>Cancel</button>
+      <button type="button" class="stone-btn" data-variant="danger" data-dialog-action="archive-demo">Archive Project</button>
+    </footer>
+  </dialog>
+
+  <!-- Live Fixed Floating Selection Dock Specimen -->
+  <div id="index-floating-dock-demo" class="stone-floating-bar" role="region" aria-label="Live floating selection dock demo" hidden>
+    <span class="stone-floating-bar__count">3 tokens selected</span>
+    <button type="button" class="stone-btn" data-variant="primary" data-size="xs" data-shape="pill" data-demo-action="export-tokens">
+      Export Selected
+    </button>
+    <button type="button" class="stone-btn" data-variant="surface" data-size="xs" data-shape="pill" data-demo-dock-toggle="index-floating-dock-demo">
+      Dismiss
+    </button>
+  </div>
+</body>
+</html>
